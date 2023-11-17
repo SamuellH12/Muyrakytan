@@ -6,6 +6,7 @@ using UnityEngine;
 public class ControlePlayer : MonoBehaviour
 {
     [SerializeField] private float velocidade = 50f;
+    public bool controlavel = true;
     
     private Rigidbody2D Rig;
     private Controle2D controle;
@@ -22,9 +23,10 @@ public class ControlePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movimentoHorizontal = Input.GetAxisRaw("Horizontal") * velocidade;
+        if(controlavel) movimentoHorizontal = Input.GetAxisRaw("Horizontal") * velocidade;
+        else movimentoHorizontal = 0;
        
-        if(Input.GetButtonDown("Jump")) pulando = true;
+        if(controlavel && Input.GetButtonDown("Jump")) pulando = true;
     }
 
     void FixedUpdate()

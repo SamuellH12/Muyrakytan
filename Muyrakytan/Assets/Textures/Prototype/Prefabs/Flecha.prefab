@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8925667534569122542}
   - component: {fileID: 3921886514785886653}
   - component: {fileID: 1898452447613750286}
+  - component: {fileID: 3224948684394228525}
   m_Layer: 0
   m_Name: Flecha
   m_TagString: Untagged
@@ -148,3 +149,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3224948684394228525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3598250513013137440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b9d716345b3244bb90047823878d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  danoCausado: 1
+  autoDestruirAposDano: 1

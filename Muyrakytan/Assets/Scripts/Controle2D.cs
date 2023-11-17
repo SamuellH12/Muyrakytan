@@ -13,7 +13,7 @@ public class Controle2D : MonoBehaviour
     private Rigidbody2D Rig;         // rigidbody do personagem
 
     private bool noChao = false; //está no chão
-    private bool facingDir = true;   //direção que o personagem está olhando
+    public bool facingDir = true;   //direção que o personagem está olhando
     [Range(0, 1f)] [SerializeField] private float raioChaoCheck = .2f; //raio de checagem para o chao
 	private Vector3 velocity = Vector3.zero;
 
@@ -36,15 +36,13 @@ public class Controle2D : MonoBehaviour
 
         Rig.velocity = Vector3.SmoothDamp(Rig.velocity, velocidade, ref velocity, suavizacao);
     
-        if(jump && noChao){ 
-            Rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-        }
+        if(jump && noChao) Rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
 
         if(movimento > 0 && !facingDir) flip();
         if(movimento < 0 &&  facingDir) flip();
     }
 
-    private void flip()
+    public void flip()
     {
         facingDir = !facingDir;
 

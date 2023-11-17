@@ -11,7 +11,7 @@ public class ArcoEFlecha : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Fire1")) AtirarFlecha();
+        if(Input.GetButtonDown("Fire1") && !PauseControl.paused) AtirarFlecha();
     }
 
     private void AtirarFlecha()
