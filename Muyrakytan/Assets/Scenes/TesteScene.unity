@@ -1654,7 +1654,6 @@ GameObject:
   - component: {fileID: 1849707225}
   - component: {fileID: 1849707224}
   - component: {fileID: 1849707227}
-  - component: {fileID: 1849707230}
   m_Layer: 6
   m_Name: Inimigo
   m_TagString: Enemy
@@ -1674,14 +1673,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76cd3a433ddff7468568b63fadead26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 50
+  velocidadeNormal: 4
+  velocidadeCorrendo: 4.5
+  raioDePercepcao: 10
   jogador: {fileID: 1979353218}
-  raioDePercepcao: 8
-  andar: 0
-  Origem: {fileID: 1649084177}
+  tempoAndando: 3
+  tempoTransicao: 0.5
+  anda: 1
+  raioDeAcao: 4.5
+  margemDoRaio: 1
+  tempoEntreAcao: 1
+  vidaAtual: 10
+  tempoCorDano: 0.5
+  corDeDano: {r: 0.764151, g: 0.06127627, b: 0.06127627, a: 1}
+  qtdDeEnergiaAoMorrer: 3
+  orbeDeEnergia: {fileID: 0}
+  OrigemDoAtaque: {fileID: 1649084177}
   ObjetoJogado: {fileID: 2067144339}
-  velocidadeDoLancamento: 10
-  intervaloEntreAtaques: 2
+  velocidadeDoLancamento: 8
 --- !u!50 &1849707225
 Rigidbody2D:
   serializedVersion: 4
@@ -1756,7 +1765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95744a17e2beb6a41b6690660b5961fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 200
+  jumpForce: 50
   suavizacao: 0.05
   layerChao:
     serializedVersion: 2
@@ -1833,21 +1842,6 @@ Transform:
   - {fileID: 1649084177}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1849707230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849707223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff9dd880997022044a4642c417103792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidaAtual: 10
-  tempoCorDano: 0.5
-  corDeDano: {r: 1, g: 0, b: 0.08150673, a: 1}
 --- !u!1 &1903944530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,7 +1888,6 @@ GameObject:
   - component: {fileID: 1979353219}
   - component: {fileID: 1979353223}
   - component: {fileID: 1979353222}
-  - component: {fileID: 1979353224}
   - component: {fileID: 1979353225}
   m_Layer: 0
   m_Name: Player
@@ -1964,7 +1957,7 @@ Transform:
   m_GameObject: {fileID: 1979353216}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2, y: -3.41, z: 0}
+  m_LocalPosition: {x: 10.83, y: -2.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2048,6 +2041,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidade: 5
   controlavel: 1
+  Arco: {fileID: 1498910772}
+  Flecha: {fileID: 3598250513013137440, guid: ca613022927c80a49842be0cba02c41c, type: 3}
+  forcaDaFlecha: 10
 --- !u!114 &1979353223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2068,21 +2064,6 @@ MonoBehaviour:
   groundCheck: {fileID: 822707061}
   facingDir: 1
   raioChaoCheck: 0.5
---- !u!114 &1979353224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979353216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7422082c8db1c40438fc28cd770aa650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Arco: {fileID: 1498910772}
-  Flecha: {fileID: 3598250513013137440, guid: ca613022927c80a49842be0cba02c41c, type: 3}
-  forcaDaFlecha: 10
 --- !u!114 &1979353225
 MonoBehaviour:
   m_ObjectHideFlags: 0

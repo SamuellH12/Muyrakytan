@@ -11,7 +11,7 @@ public class FlechaPlayer : MonoBehaviour
     {
         if(collision.transform.tag != "Enemy") return;
 
-        collision.transform.GetComponent<VidaNPC>().Dano(danoCausado);
+        collision.transform.GetComponent<Enemy>().Dano(danoCausado);
 
         if(autoDestruirAposDano)
         {

@@ -5,14 +5,19 @@ using UnityEngine;
 [RequireComponent(typeof(Controle2D))]
 public class ControlePlayer : MonoBehaviour
 {
+    [Header("Movimentação")]
     [SerializeField] private float velocidade = 50f;
     public bool controlavel = true;
-    
-    private Rigidbody2D Rig;
-    private Controle2D controle;
-
     private float movimentoHorizontal = 0f;
     private bool pulando = false;
+
+    [Header("Arco e Flecha")]
+    [SerializeField] private Transform Arco;
+    [SerializeField] private GameObject Flecha;
+    [SerializeField] private float forcaDaFlecha = 10f;
+
+    private Rigidbody2D Rig;
+    private Controle2D controle;
 
     private void Awake()
     {
@@ -27,11 +32,34 @@ public class ControlePlayer : MonoBehaviour
         else movimentoHorizontal = 0;
        
         if(controlavel && Input.GetButtonDown("Jump")) pulando = true;
+
+        if((Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.UpArrow)) && !PauseControl.paused) AtirarFlecha();
     }
 
     void FixedUpdate()
     {
         controle.aplicarMovimento(movimentoHorizontal, pulando);
         pulando = false;
+    }
+
+
+    private void AtirarFlecha()
+    {
+        GameObject flecha = Instantiate(Flecha);
+        flecha.transform.position = Arco.position;
+
+        float normal = 1;
+        
+        if(transform.localScale.x < 0)
+        {
+            normal = -1;
+            Vector3 scale = flecha.transform.localScale;
+            scale.x *= -1;
+            flecha.transform.localScale = scale;
+        }
+        
+        flecha.GetComponent<Rigidbody2D>().velocity = new Vector2(forcaDaFlecha * normal, 0);
+
+        Destroy(flecha.gameObject, 5f);
     }
 }

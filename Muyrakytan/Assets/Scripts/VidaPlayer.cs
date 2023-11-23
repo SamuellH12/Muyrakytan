@@ -13,6 +13,7 @@ public class VidaPlayer : MonoBehaviour
     [SerializeField] private Color corDeDano = new Color(200, 10, 10);
     private Color originalColor;
     private SpriteRenderer sprite;
+    int qtdDeEventosDeDano = 0;
 
     private float tempoDecorrido = 0f;
 
@@ -35,7 +36,7 @@ public class VidaPlayer : MonoBehaviour
         vidaAtual -= dano;
 
         AtualizaUI();
-        StartCoroutine("TrocarCor");        
+        StartCoroutine("TrocarCor");
 
         if(vidaAtual <= 0) Morte();
     }
@@ -60,9 +61,12 @@ public class VidaPlayer : MonoBehaviour
 
     IEnumerator TrocarCor(){
         sprite.color = corDeDano;
+        qtdDeEventosDeDano++;
 
         yield return new WaitForSeconds(tempoCorDano);
 
-        sprite.color = originalColor;
+        qtdDeEventosDeDano--;
+
+        if(qtdDeEventosDeDano == 0) sprite.color = originalColor;
     }
 }

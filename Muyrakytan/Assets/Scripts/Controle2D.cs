@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Controle2D : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 200f;  // força do pulo
+    [SerializeField] private float jumpForce = 70f;  // força do pulo
 
     [Range(0, .3f)] [SerializeField] private float suavizacao = .05f;   //suavização de movimento
 	[SerializeField] private LayerMask layerChao;      //layers que representam o chao
