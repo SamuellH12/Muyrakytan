@@ -15,14 +15,17 @@ public class ControlePlayer : MonoBehaviour
     [SerializeField] private Transform Arco;
     [SerializeField] private GameObject Flecha;
     [SerializeField] private float forcaDaFlecha = 10f;
+    [SerializeField] private int gastoDeEnergiaFlecha = 1;
 
     private Rigidbody2D Rig;
     private Controle2D controle;
+    private VidaPlayer vidaEnergia;
 
     private void Awake()
     {
         controle = GetComponent<Controle2D>();
         Rig = GetComponent<Rigidbody2D>();
+        vidaEnergia = GetComponent<VidaPlayer>();
     }
 
     // Update is called once per frame
@@ -33,7 +36,7 @@ public class ControlePlayer : MonoBehaviour
        
         if(controlavel && Input.GetButtonDown("Jump")) pulando = true;
 
-        if((Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.UpArrow)) && !PauseControl.paused) AtirarFlecha();
+        if((Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.UpArrow)) && vidaEnergia.energiaAtual > 0 && !PauseControl.paused) AtirarFlecha();
     }
 
     void FixedUpdate()
@@ -47,6 +50,8 @@ public class ControlePlayer : MonoBehaviour
     {
         GameObject flecha = Instantiate(Flecha);
         flecha.transform.position = Arco.position;
+
+        vidaEnergia.somaEnergia(-gastoDeEnergiaFlecha);
 
         float normal = 1;
         

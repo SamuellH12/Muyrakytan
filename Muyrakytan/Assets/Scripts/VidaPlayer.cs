@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class VidaPlayer : MonoBehaviour
 {
-    [SerializeField] private int vidaMaxima = 10;
+    [Header("Vida")]
+    [SerializeField] public int vidaMaxima = 10;
     [SerializeField] public int vidaAtual = 10;
     [SerializeField] private float tempoInvulneravel = 1f;
 
-    [Header("Cor de Dano")]
+    [Header("Energia")]
+    [SerializeField] public int energiaMaxima = 100;
+    [SerializeField] public int energiaAtual = 50;
+
+    [Header("Cores de interação")]
     [SerializeField] private float tempoCorDano = 1f;
     [SerializeField] private Color corDeDano = new Color(200, 10, 10);
+    [SerializeField] private float tempoCorEnergia = 1f;
+    [SerializeField] private Color corDaEnergia = new Color(0, 0, 1);
     private Color originalColor;
+    private Color nwColor;
+    private float tempoColorido = 0f;
     private SpriteRenderer sprite;
-    int qtdDeEventosDeDano = 0;
+    int qtdDeEventosDeCor = 0;
 
     private float tempoDecorrido = 0f;
 
@@ -23,7 +32,8 @@ public class VidaPlayer : MonoBehaviour
         originalColor = sprite.color;
     }
 
-    void Update() { 
+    void Update() 
+    { 
         tempoDecorrido += Time.deltaTime;
     }
 
@@ -36,13 +46,43 @@ public class VidaPlayer : MonoBehaviour
         vidaAtual -= dano;
 
         AtualizaUI();
+        nwColor = corDeDano;
+        tempoColorido = tempoCorDano;
         StartCoroutine("TrocarCor");
 
         if(vidaAtual <= 0) Morte();
     }
 
-    private void Morte(){
+    public void RecuperarVida(int valor)
+    {
+        vidaAtual += valor;
+        AtualizaUI();
+    }
 
+    public void somaEnergia(int valor)
+    {
+        energiaAtual += valor;
+
+        energiaAtual = Mathf.Max(energiaAtual, 0);
+        energiaAtual = Mathf.Min(energiaAtual, energiaMaxima);
+
+        AtualizaUI();
+
+        if(valor > 0){
+            nwColor = corDaEnergia;
+            tempoColorido = tempoCorEnergia;
+            StartCoroutine("TrocarCor");
+        }
+
+        if(energiaAtual == energiaMaxima)
+        {
+            //chama o evento da noite
+        }
+    }
+
+
+    private void Morte()
+    {
         GetComponent<ControlePlayer>().controlavel = false;
 
         //animação de morte
@@ -51,22 +91,22 @@ public class VidaPlayer : MonoBehaviour
         PauseControl.PauseGame(false);
     }
 
-    private void AtualizaUI(){
-
+    private void AtualizaUI()
+    {
         Debug.Log("Vidas: " + vidaAtual);
-
+        Debug.Log("Energia: " + energiaAtual);
         // atualizar quantidade de corações na interface de usuário
-
     }
 
-    IEnumerator TrocarCor(){
-        sprite.color = corDeDano;
-        qtdDeEventosDeDano++;
+    IEnumerator TrocarCor()
+    {
+        sprite.color = nwColor;
+        qtdDeEventosDeCor++;
 
-        yield return new WaitForSeconds(tempoCorDano);
+        yield return new WaitForSeconds(tempoColorido);
 
-        qtdDeEventosDeDano--;
+        qtdDeEventosDeCor--;
 
-        if(qtdDeEventosDeDano == 0) sprite.color = originalColor;
+        if(qtdDeEventosDeCor == 0) sprite.color = originalColor;
     }
 }

@@ -33,20 +33,22 @@ public class Enemy : MonoBehaviour
 
 
     [Header("Drops")]
-    [SerializeField] protected int qtdDeEnergiaAoMorrer = 3;
-    [SerializeField] protected GameObject orbeDeEnergia;
+    [SerializeField] protected int qtdDeDrops = 0;
+    [SerializeField] protected GameObject drop;
 
 
     protected Rigidbody2D Rig;
     protected Controle2D controle;
     
-    
+    // encontrar o player sem instanciar -> GameObject.Find("Player")
+
     private void Awake()
     {
         controle = GetComponent<Controle2D>();
         Rig = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         originalColor = sprite.color;
+        if(jogador == null) jogador = GameObject.FindWithTag("Player").transform;
     }
 
     
@@ -110,6 +112,21 @@ public class Enemy : MonoBehaviour
 
     private void Morte(){
         //animação de morte
+
+        if(qtdDeDrops > 0)
+        {
+            for(int i=0; i<qtdDeDrops; i++)
+            {
+                GameObject obj = Instantiate(drop);
+                obj.transform.position = transform.position;
+
+                Vector2 dir = (jogador.transform.position - transform.position);
+                dir.x += Random.Range(-2, 2);
+                dir.y += Random.Range(-2, 2);
+
+                obj.GetComponent<Rigidbody2D>().AddForce(dir, ForceMode2D.Impulse);
+            }
+        }
 
         Destroy(gameObject);
     }
