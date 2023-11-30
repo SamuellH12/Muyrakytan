@@ -77,6 +77,8 @@ public class VidaPlayer : MonoBehaviour
         if(energiaAtual == energiaMaxima)
         {
             //chama o evento da noite
+            if(CicloDaNoite.Noite == false) 
+                GameObject.FindWithTag("GlobalConfig").GetComponent<CicloDaNoite>().Anoitecer();
         }
     }
 

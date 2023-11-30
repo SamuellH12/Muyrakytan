@@ -17,7 +17,6 @@ public class AutoMovingBackground : MonoBehaviour
             maxDist = Mathf.Max(chd.position.x - transform.position.x, maxDist);
         }
         tempo = Time.fixedDeltaTime;
-        Debug.Log(minDist + "m  M" + maxDist);
     }
 
     void FixedUpdate()

@@ -1,0 +1,12 @@
+AS LAYERS UTILIZADAS POR PADRÃO SÃO:
+
+-100	| Céu dia
+-99	| Céu noite
+-95	| Estrelas
+-90	| Nuvens
+
+-60	| Fundo verde das Plantas 
+
+0	| Player, Inimigos, Chão principal
+
+10	| Coletáveis

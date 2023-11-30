@@ -9,7 +9,7 @@ public class PauseControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) PauseGame(true);
+       if (Input.GetKeyDown(KeyCode.Escape)) PauseGame(true);
     }
 
     public static void PauseGame(bool showMenu = true)
