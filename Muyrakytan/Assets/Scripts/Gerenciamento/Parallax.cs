@@ -6,11 +6,11 @@ public class Parallax : MonoBehaviour
 {
 
     [Header("Parallax in X axis")]
-    [SerializeField] private bool parallaxX = true;
+    [SerializeField] public bool parallaxX = true;
     [Range(-1f, 1f)] [SerializeField] private float effectX = 0.5f;
 
     [Header("Parallax in Y axis")]
-    [SerializeField] private bool parallaxY = true;
+    [SerializeField] public bool parallaxY = true;
     [Range(-1f, 1f)] [SerializeField] private float effectY = 0.5f;
     
     [Header("Infinity Repetition Parallax X")]
@@ -18,7 +18,7 @@ public class Parallax : MonoBehaviour
     [SerializeField] private bool autoWidth = true;
     [SerializeField] private float width;
 
-    private Vector3 startPos;
+    public Vector3 startPos;
     private Transform cam;
 
 
@@ -48,6 +48,11 @@ public class Parallax : MonoBehaviour
             }
         }
         else Debug.Log(transform.position.x + " " + transform.position.y);
+    }
+
+    public void SetHeight(float deltaY)
+    {
+        startPos.y = deltaY;
     }
 }
 

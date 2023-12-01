@@ -16,6 +16,8 @@ public class ControlePlayer : MonoBehaviour
     [SerializeField] private GameObject Flecha;
     [SerializeField] private float forcaDaFlecha = 10f;
     [SerializeField] private int gastoDeEnergiaFlecha = 1;
+    [SerializeField] private int danoDaFlecha = 1;
+    [SerializeField] private int danoDaFlechaANoite = 3;
 
     private Rigidbody2D Rig;
     private Controle2D controle;
@@ -50,6 +52,7 @@ public class ControlePlayer : MonoBehaviour
     {
         GameObject flecha = Instantiate(Flecha);
         flecha.transform.position = Arco.position;
+        flecha.GetComponent<FlechaPlayer>().dano = (CicloDaNoite.noite ? danoDaFlechaANoite : danoDaFlecha);
 
         vidaEnergia.somaEnergia(-gastoDeEnergiaFlecha);
 

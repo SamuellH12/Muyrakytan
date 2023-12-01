@@ -1,8 +1,9 @@
 AS LAYERS UTILIZADAS POR PADRÃO SÃO:
 
--100	| Céu dia
--99	| Céu noite
--95	| Estrelas
+-100	| Céu Noite
+-99	| Estrelas
+-98	| Lua
+-95	| Céu dia
 -90	| Nuvens
 
 -60	| Fundo verde das Plantas 

@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class FlechaPlayer : MonoBehaviour
 {
-    [SerializeField] private int danoCausado = 1;
+    //[SerializeField] 
+    public int dano = 1;
     [SerializeField] private bool autoDestruirAposDano = true;
+    [SerializeField] private bool autoDestruirComImpacto = true;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.tag != "Enemy") return;
-
-        collision.transform.GetComponent<Enemy>().Dano(danoCausado);
-
-        if(autoDestruirAposDano)
+        if(collision.transform.tag == "Enemy")
         {
-            // se ouver animação, dar play
-            Destroy(gameObject);
+            collision.transform.GetComponent<Enemy>().Dano(dano);
+
+            if(autoDestruirAposDano)
+            {
+                // se ouver animação, dar play
+                Destroy(gameObject);
+            }
         }
+        else
+        if(autoDestruirComImpacto && collision.transform.tag != "Player")
+            Destroy(gameObject, 0.1f);
     }
 }
