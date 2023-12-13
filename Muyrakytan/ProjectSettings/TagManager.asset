@@ -16,7 +16,7 @@ TagManager:
   - UI
   - Enemy
   - Mob
-  - 
+  - Item
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: midground
     uniqueID: 2289678623
+    locked: 0
+  - name: Agua
+    uniqueID: 991808989
     locked: 0
   - name: Default
     uniqueID: 0

@@ -15,10 +15,17 @@ public class ObjetoComDano : MonoBehaviour
 
         collision.transform.GetComponent<VidaPlayer>().Dano(danoCausado);
 
-        if(autoDestruirAposDano)
-        {
-            Destroy(gameObject);
-        }
+        if(autoDestruirAposDano) Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(danoConstante) return;
+        if(collision.transform.tag != "Player") return;
+
+        collision.transform.GetComponent<VidaPlayer>().Dano(danoCausado);
+
+        if(autoDestruirAposDano) Destroy(gameObject);
     }
 
 

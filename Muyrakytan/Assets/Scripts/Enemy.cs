@@ -73,6 +73,8 @@ public class Enemy : MonoBehaviour
 
         if(estado == 0 || estado == 3 || estado == 2) tempoDecorrido += Time.deltaTime;
         else tempoDecorrido = 0;
+
+        // if ( Input.GetKeyDown(KeyCode.Space)) Action();
     }
 
     void FixedUpdate()

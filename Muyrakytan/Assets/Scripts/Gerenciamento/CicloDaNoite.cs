@@ -28,10 +28,18 @@ public class CicloDaNoite : MonoBehaviour
     [SerializeField] public Transform luzGlobal;
     [SerializeField] public Color corDaLuzDia   = Color.white;
     [SerializeField] public Color corDaLuzNoite = new Color(.09f, .11f, .24f);
+    // [SerializeField] public List<Transform> grupoApagaAcende; 
+    // private List<float> grupoApagaAcendeValor;
 
     [Header("Transição")]
     [SerializeField] public float tempoDeTransicao = 2f;
     [SerializeField] public int quantidadeDePassos = 100;
+
+    void Awake()
+    {
+
+    }
+
 
     void Update()
     {
@@ -40,7 +48,6 @@ public class CicloDaNoite : MonoBehaviour
             if(noite) Amanhecer();
             else Anoitecer();
         }
-      //  Debug.Log("Working");
     }
 
     public void Anoitecer(int faseDaLua = 0)

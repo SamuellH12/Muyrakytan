@@ -5,11 +5,12 @@ using UnityEngine;
 public class InimigoDash : Enemy
 {
     [Header("Ataque")]
-    [SerializeField] private float velocidadeDash = 10f;
+    [SerializeField] private float velocidadeDash = 200f;
     [SerializeField] private float delay = 2f;
-    [SerializeField] private float dashTime = 2f;
+    // [SerializeField] private float dashTime = 2f;
     [SerializeField] private float delayAfter = 3f;
     [SerializeField] private GameObject particulas;
+    [SerializeField] private GameObject particulas2;
     
     private bool inAction = false;
 
@@ -46,10 +47,17 @@ public class InimigoDash : Enemy
 
         yield return new WaitForSeconds(delay);
 
-        Rig.velocity = new Vector2(velocidadeDash * (controle.facingDir ? 1 : -1), 0f);
-        yield return new WaitForSeconds(dashTime);
-        Rig.velocity = Vector2.zero; 
+        if(particulas2 != null)
+        {
+            GameObject eff = Instantiate(particulas2);
+            eff.transform.position = transform.position;
+            Destroy(eff.gameObject, 3f);
+        }
 
+        Rig.velocity = new Vector2(velocidadeDash * (controle.facingDir ? 1 : -1), 0f);
+
+        // yield return new WaitForSeconds(dashTime);
+        // Rig.velocity = Vector2.zero; 
         yield return new WaitForSeconds(delayAfter);
 
         ResetAction();

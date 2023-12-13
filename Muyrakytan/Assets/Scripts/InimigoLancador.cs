@@ -8,6 +8,7 @@ public class InimigoLancador : Enemy
     [SerializeField] private Transform OrigemDoAtaque;
     [SerializeField] private GameObject ObjetoJogado;
     [SerializeField] private float velocidadeDoLancamento = 10f;
+    [SerializeField] private float tempoProItemDesaparecer = 4f;
 
 
 
@@ -27,7 +28,7 @@ public class InimigoLancador : Enemy
 
         rbObj.AddForce(dir, ForceMode2D.Impulse);
         
-        Destroy(obj.gameObject, 2f);
+        Destroy(obj.gameObject, tempoProItemDesaparecer);
 
         if(jogador.transform.position.x - transform.position.x > 0 && !controle.facingDir) controle.flip();
         if(jogador.transform.position.x - transform.position.x < 0 &&  controle.facingDir) controle.flip();

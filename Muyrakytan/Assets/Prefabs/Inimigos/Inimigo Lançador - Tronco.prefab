@@ -240,10 +240,11 @@ MonoBehaviour:
   tempoCorDano: 0.5
   corDeDano: {r: 0.764151, g: 0.06127627, b: 0.06127627, a: 1}
   qtdDeDrops: 6
-  drop: {fileID: 4942611299512897860, guid: 78cce3233a04c8545a6696c3b20d7071, type: 3}
+  drop: {fileID: 4942611299512897860, guid: 6b1412b954fad8645ae6e664b28b9c7e, type: 3}
   OrigemDoAtaque: {fileID: 1332934044841450708}
   ObjetoJogado: {fileID: 1676235576185706629, guid: 719967d3a7097ab458ae2605b616eab1, type: 3}
   velocidadeDoLancamento: 8
+  tempoProItemDesaparecer: 3
 --- !u!114 &2923971780303164996
 MonoBehaviour:
   m_ObjectHideFlags: 0
