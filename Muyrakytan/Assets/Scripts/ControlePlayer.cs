@@ -18,6 +18,8 @@ public class ControlePlayer : MonoBehaviour
     [SerializeField] private int gastoDeEnergiaFlecha = 1;
     [SerializeField] private int danoDaFlecha = 1;
     [SerializeField] private int danoDaFlechaANoite = 3;
+    [SerializeField] private float cooldown = 0.5f;
+    private float tempoDaFlecha = 0;
 
     private Rigidbody2D Rig;
     private Controle2D controle;
@@ -38,7 +40,8 @@ public class ControlePlayer : MonoBehaviour
        
         if(controlavel && Input.GetButtonDown("Jump")) pulando = true;
 
-        if((Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.UpArrow)) && vidaEnergia.energiaAtual > 0 && !PauseControl.paused) AtirarFlecha();
+        tempoDaFlecha += Time.deltaTime;
+        if((Input.GetKeyDown(KeyCode.UpArrow)) && tempoDaFlecha >= cooldown && vidaEnergia.energiaAtual > 0 && !PauseControl.paused) AtirarFlecha();
     }
 
     void FixedUpdate()
@@ -50,6 +53,7 @@ public class ControlePlayer : MonoBehaviour
 
     private void AtirarFlecha()
     {
+        tempoDaFlecha = 0;
         GameObject flecha = Instantiate(Flecha);
         flecha.transform.position = Arco.position;
         flecha.GetComponent<FlechaPlayer>().dano = (CicloDaNoite.noite ? danoDaFlechaANoite : danoDaFlecha);

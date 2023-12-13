@@ -26,8 +26,8 @@ public class Enemy : MonoBehaviour
     [Header("Vida")]
     [SerializeField] public int vidaAtual = 10;
     [SerializeField] protected float tempoCorDano = 1f;
-    [SerializeField] protected Color corDeDano = new Color(200, 10, 10);
-    protected Color originalColor;
+    [SerializeField] protected Color corDeDano = new Color(1f, 1f, 1f);
+    protected Color originalColor = new Color(1f, 1f, 1f);
     protected SpriteRenderer sprite;
     protected int qtdDeEventosDeDano = 0;
 
@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
         else
         if(estado == 1 && maxDist <= raioDeAcao - margemDoRaio) estado = 2;
         else 
-        if(estado == 2 && maxDist > raioDeAcao) estado = 1;
+        if(estado == 2 && maxDist > raioDeAcao){ estado = 1; ResetAction(); }
         else
         if(estado == 1 && maxDist > raioDePercepcao){  estado = 3; tempoDecorrido = 0; }
         else
@@ -90,6 +90,7 @@ public class Enemy : MonoBehaviour
     }
 
     public virtual void Action(){}
+    public virtual void ResetAction(){}
 
     private void OnDrawGizmosSelected()
     {

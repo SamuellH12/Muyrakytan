@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class FlechaPlayer : MonoBehaviour
 {
@@ -8,6 +9,20 @@ public class FlechaPlayer : MonoBehaviour
     public int dano = 1;
     [SerializeField] private bool autoDestruirAposDano = true;
     [SerializeField] private bool autoDestruirComImpacto = true;
+    [SerializeField] public Sprite spriteDia;
+    [SerializeField] public Sprite spriteNoite;
+    //[SerializeField] 
+    private Transform pontoDeLuz;
+
+    void Start(){
+        GetComponent<SpriteRenderer>().sprite = (CicloDaNoite.noite ? spriteNoite : spriteDia);
+        // luz de efeito
+        pontoDeLuz = transform.GetChild(0);
+        pontoDeLuz.GetComponent<Light2D>().enabled = CicloDaNoite.noite;
+        //luz de iluminação  
+        pontoDeLuz = transform.GetChild(1);
+        pontoDeLuz.GetComponent<Light2D>().enabled = CicloDaNoite.noite;
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,6 +38,6 @@ public class FlechaPlayer : MonoBehaviour
         }
         else
         if(autoDestruirComImpacto && collision.transform.tag != "Player")
-            Destroy(gameObject, 0.1f);
+            Destroy(gameObject, 0.01f);
     }
 }

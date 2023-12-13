@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - GlobalConfig
+  - flecha
   layers:
   - Default
   - TransparentFX
@@ -40,6 +41,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: infinity far
+    uniqueID: 3616815221
+    locked: 0
+  - name: faraway
+    uniqueID: 3516885263
+    locked: 0
+  - name: background
+    uniqueID: 575523959
+    locked: 0
+  - name: midground
+    uniqueID: 2289678623
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: foreground
+    uniqueID: 2609158191
     locked: 0
