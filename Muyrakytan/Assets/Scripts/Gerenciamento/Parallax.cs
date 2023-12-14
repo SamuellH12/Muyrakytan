@@ -21,12 +21,14 @@ public class Parallax : MonoBehaviour
     public Vector3 startPos;
     private Transform cam;
 
+    private float delta = 0f;
+
 
     void Start()
     {
         startPos = transform.position;
         if(autoWidth) width = GetComponent<SpriteRenderer>().bounds.size.x;
-        //cam = Camera.main.transform;
+        delta = width/3f;
         cam = GameObject.FindWithTag("MainCamera").transform;
     }
 
@@ -42,9 +44,9 @@ public class Parallax : MonoBehaviour
             {
                 float repos = cam.transform.position.x * (1 - effectX);
 
-                if(repos > startPos.x + width) startPos.x += width;
+                if(repos + delta > startPos.x + width) startPos.x += width;
                 else
-                if(repos < startPos.x - width) startPos.x -= width;
+                if(repos - delta < startPos.x - width) startPos.x -= width;
             }
         }
         else Debug.Log(transform.position.x + " " + transform.position.y);

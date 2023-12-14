@@ -25,5 +25,7 @@ public class Coletavel : MonoBehaviour
     {
         if(collision.transform.tag == "flecha")
             Aplicar(GameObject.FindWithTag("Player").transform.GetComponent<VidaPlayer>());
+        if(collision.transform.tag == "Player") 
+            Aplicar(collision.transform.GetComponent<VidaPlayer>());
     }
 }

@@ -231,7 +231,7 @@ MonoBehaviour:
   raioDeAcao: 12
   margemDoRaio: 3
   tempoEntreAcao: 3
-  vidaAtual: 10
+  vidaAtual: 14
   tempoCorDano: 1
   corDeDano: {r: 0.990566, g: 0.2943663, b: 0.2943663, a: 1}
   qtdDeDrops: 15

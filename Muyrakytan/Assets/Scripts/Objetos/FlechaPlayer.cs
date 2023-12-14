@@ -37,7 +37,7 @@ public class FlechaPlayer : MonoBehaviour
             }
         }
         else
-        if(autoDestruirComImpacto && collision.transform.tag != "Player")
+        if(autoDestruirComImpacto && collision.transform.tag != "Player" && collision.transform.tag != "Tecnico")
             Destroy(gameObject, 0.01f);
     }
 }

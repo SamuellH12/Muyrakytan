@@ -8,6 +8,7 @@ public class VidaPlayer : MonoBehaviour
     [SerializeField] public int vidaMaxima = 10;
     [SerializeField] public int vidaAtual = 10;
     [SerializeField] private float tempoInvulneravel = 1f;
+    [SerializeField] private StatsUI barraDeStats;
 
     [Header("Energia")]
     [SerializeField] public int energiaMaxima = 100;
@@ -30,6 +31,9 @@ public class VidaPlayer : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         originalColor = sprite.color;
+        if(barraDeStats == null) barraDeStats = GameObject.FindWithTag("BarraDeStats").GetComponent<StatsUI>();
+        barraDeStats.SetMaxValues(vidaMaxima, energiaMaxima);
+        AtualizaUI();
     }
 
     void Update() 
@@ -98,6 +102,8 @@ public class VidaPlayer : MonoBehaviour
         Debug.Log("Vidas: " + vidaAtual);
         Debug.Log("Energia: " + energiaAtual);
         // atualizar quantidade de corações na interface de usuário
+        barraDeStats.AtualizarVidas(vidaAtual);
+        barraDeStats.AtualizarEnergia(energiaAtual);
     }
 
     IEnumerator TrocarCor()

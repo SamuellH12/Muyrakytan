@@ -10,6 +10,8 @@ public class CicloDaNoite : MonoBehaviour
     // criar um script separado para elementos que trocam de cor, baseado no static Noite
 
     public static bool noite = false;
+    public static float tempoDeTransicaoDoCicloDiaNoite = 2f;
+    public static int quantidadeDePassosDoCicloDiaNoite = 50;
     [Header("Background dos Céus")]
     [SerializeField] public Transform grupoCeuNoturno;
     [SerializeField] public Transform grupoCeuDiurno;
@@ -35,9 +37,9 @@ public class CicloDaNoite : MonoBehaviour
     [SerializeField] public float tempoDeTransicao = 2f;
     [SerializeField] public int quantidadeDePassos = 100;
 
-    void Awake()
-    {
-
+    void Awake(){ 
+        tempoDeTransicaoDoCicloDiaNoite = tempoDeTransicao; 
+        quantidadeDePassosDoCicloDiaNoite = quantidadeDePassos;
     }
 
 
