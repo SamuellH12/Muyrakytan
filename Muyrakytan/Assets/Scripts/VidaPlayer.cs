@@ -14,11 +14,14 @@ public class VidaPlayer : MonoBehaviour
     [SerializeField] public int energiaMaxima = 100;
     [SerializeField] public int energiaAtual = 50;
 
+    [Header("Chave")]
+    [SerializeField] public bool taComAChave = false;
+
     [Header("Cores de interação")]
     [SerializeField] private float tempoCorDano = 1f;
     [SerializeField] private Color corDeDano = new Color(200, 10, 10);
-    [SerializeField] private float tempoCorEnergia = 1f;
-    [SerializeField] private Color corDaEnergia = new Color(0, 0, 1);
+    // [SerializeField] private float tempoCorEnergia = 1f;
+    // [SerializeField] private Color corDaEnergia = new Color(0, 0, 1);
     private Color originalColor;
     private Color nwColor;
     private float tempoColorido = 0f;
@@ -72,11 +75,11 @@ public class VidaPlayer : MonoBehaviour
 
         AtualizaUI();
 
-        if(valor > 0){
-            nwColor = corDaEnergia;
-            tempoColorido = tempoCorEnergia;
-            StartCoroutine("TrocarCor");
-        }
+        // if(valor > 0){
+        //     nwColor = corDaEnergia;
+        //     tempoColorido = tempoCorEnergia;
+        //     StartCoroutine("TrocarCor");
+        // }
 
         if(energiaAtual == energiaMaxima)
         {
@@ -94,7 +97,7 @@ public class VidaPlayer : MonoBehaviour
         //animação de morte
         //tela de GameOver
 
-        PauseControl.PauseGame(false);
+        UIControl.GameOver();
     }
 
     private void AtualizaUI()

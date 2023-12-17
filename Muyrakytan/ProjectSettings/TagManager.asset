@@ -9,6 +9,8 @@ TagManager:
   - flecha
   - BarraDeStats
   - Tecnico
+  - MenuInGame
+  - MenuPause
   layers:
   - Default
   - TransparentFX

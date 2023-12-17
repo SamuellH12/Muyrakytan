@@ -185,7 +185,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.5, y: 3}
+  m_Size: {x: 1.5, y: 2.8}
   m_Direction: 0
 --- !u!50 &6358101358946253112
 Rigidbody2D:
@@ -244,7 +244,7 @@ MonoBehaviour:
   OrigemDoAtaque: {fileID: 1332934044841450708}
   ObjetoJogado: {fileID: 1676235576185706629, guid: 719967d3a7097ab458ae2605b616eab1, type: 3}
   velocidadeDoLancamento: 8
-  tempoProItemDesaparecer: 3
+  tempoProItemDesaparecer: 1.5
 --- !u!114 &2923971780303164996
 MonoBehaviour:
   m_ObjectHideFlags: 0

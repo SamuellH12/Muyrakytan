@@ -230,15 +230,15 @@ MonoBehaviour:
   anda: 1
   raioDeAcao: 12
   margemDoRaio: 3
-  tempoEntreAcao: 3
+  tempoEntreAcao: 0
   vidaAtual: 14
   tempoCorDano: 1
   corDeDano: {r: 0.990566, g: 0.2943663, b: 0.2943663, a: 1}
   qtdDeDrops: 15
   drop: {fileID: 4942611299512897860, guid: 6b1412b954fad8645ae6e664b28b9c7e, type: 3}
   velocidadeDash: 250
-  delay: 3
-  delayAfter: 4
+  delay: 5
+  delayAfter: 5
   particulas: {fileID: 2998659356077021615, guid: 13cea7f9c1d30364f9d92d8a341e5a0b, type: 3}
   particulas2: {fileID: 2998659356077021615, guid: 13cea7f9c1d30364f9d92d8a341e5a0b, type: 3}
 --- !u!60 &1099222206649778619

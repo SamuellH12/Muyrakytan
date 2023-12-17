@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class StatsUI : MonoBehaviour
 {
-
     [Header("Vida")]
     [SerializeField] public Transform barraDeVida;
     [SerializeField] public Sprite vidaCompleta;
@@ -21,19 +20,28 @@ public class StatsUI : MonoBehaviour
     private int energiaMaxima;
     private Slider fill;
 
+    [Header("Chave")]
+    [SerializeField] public Image chave;
+    static int qtdChaves = 0;
+
+    [Header("Maracuja")]
+    [SerializeField] public Image maracuja;
+    static int maracujasAtivos = 0;
+
+
     void Start(){   
         //tamanhoVida = ;
         fill = barraDeEnergia.GetComponent<Slider>();
+        chave.enabled = false;
+        maracuja.enabled = false;
     }
 
     public void AtualizarVidas(int vidaAtual)
     {
-        ResetarVidas();
-        
+        ResetarVidas();        
         for(int i=0; i<vidaAtual; i++)
         {
             GameObject vd = Instantiate(vida, new Vector3(barraDeVida.position.x + tamanhoVida*i + distanciaEntreVidas*(i+1), barraDeVida.transform.position.y + tamanhoVida/2f, 0), Quaternion.identity, barraDeVida.transform);
-            // vd.transform.position.y = 0;
             listaVidas.Add(vd);
         }
     }
@@ -52,5 +60,20 @@ public class StatsUI : MonoBehaviour
     {
         vidaMaxima = _vidaMaxima;
         energiaMaxima = _energiaMaxima;
+    }
+
+    public void MostrarChave(bool value = true){
+        chave.enabled = value;  
+        qtdChaves = (value ? 1 : 0);
+    }
+
+    public void ativarMaracuja(){
+        maracuja.enabled = true;
+        maracujasAtivos++;
+    }
+
+    public void desativarMaracuja(){
+        maracujasAtivos--;
+        if(maracujasAtivos == 0) maracuja.enabled = false;
     }
 }

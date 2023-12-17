@@ -28,15 +28,13 @@ public class InimigoDash : Enemy
                 Destroy(eff.gameObject, 5f);
             }
 
-            inAction = true;
-            anda = false;
             StartCoroutine("Dash");
         }
     }
 
     public override void ResetAction()
     {
-        tempoDecorrido = 0;
+        tempoDecorrido = tempoDaUltimaAcao = 0;
         inAction = false;
         anda = true;
     }
@@ -54,13 +52,13 @@ public class InimigoDash : Enemy
             Destroy(eff.gameObject, 3f);
         }
 
-        Rig.velocity = new Vector2(velocidadeDash * (controle.facingDir ? 1 : -1), 0f);
+        if(inAction) Rig.velocity = new Vector2(velocidadeDash * (controle.facingDir ? 1 : -1), 0f);
 
         // yield return new WaitForSeconds(dashTime);
         // Rig.velocity = Vector2.zero; 
         yield return new WaitForSeconds(delayAfter);
 
-        ResetAction();
+        if(inAction) ResetAction();
     }
 
 }

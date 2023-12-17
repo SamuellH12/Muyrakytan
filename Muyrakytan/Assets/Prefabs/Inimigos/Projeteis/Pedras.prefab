@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 5987205434824033928, guid: 719967d3a7097ab458ae2605b616eab1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1643863254, guid: 9215ba0af89022d49949e1cba86c5d50, type: 3}
+      objectReference: {fileID: -355928206, guid: 9215ba0af89022d49949e1cba86c5d50, type: 3}
     - target: {fileID: 8437925055914174073, guid: 719967d3a7097ab458ae2605b616eab1, type: 3}
       propertyPath: m_Size.x
       value: 0.79852057

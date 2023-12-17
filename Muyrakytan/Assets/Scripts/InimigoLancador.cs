@@ -16,6 +16,7 @@ public class InimigoLancador : Enemy
     {
         pulando = true;
         tempoDecorrido = 0;
+        tempoDaUltimaAcao = 0;
 
         GameObject obj = Instantiate(ObjetoJogado);
         obj.transform.position = OrigemDoAtaque.position;

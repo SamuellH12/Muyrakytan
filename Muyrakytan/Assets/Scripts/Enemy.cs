@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float margemDoRaio = 2f;
     [SerializeField] protected float tempoEntreAcao = 1f;
     protected float tempoDecorrido = 0f;
+    protected float tempoDaUltimaAcao = 0f;
     protected int estado = 0;
 
     [Header("Vida")]
@@ -60,7 +61,7 @@ public class Enemy : MonoBehaviour
 
         if(estado == 0 && maxDist <= raioDePercepcao) estado = 1;
         else
-        if(estado == 1 && maxDist <= raioDeAcao - margemDoRaio) estado = 2;
+        if(estado == 1 && maxDist <= raioDeAcao - margemDoRaio){ estado = 2; tempoDecorrido = 0f; }
         else 
         if(estado == 2 && maxDist > raioDeAcao){ estado = 1; ResetAction(); }
         else
@@ -73,7 +74,7 @@ public class Enemy : MonoBehaviour
 
         if(estado == 0 || estado == 3 || estado == 2) tempoDecorrido += Time.deltaTime;
         else tempoDecorrido = 0;
-
+        tempoDaUltimaAcao += Time.deltaTime;
         // if ( Input.GetKeyDown(KeyCode.Space)) Action();
     }
 
@@ -83,7 +84,7 @@ public class Enemy : MonoBehaviour
         else
         if(estado == 1 && anda) movimentoHorizontal = velocidadeCorrendo * (Mathf.Abs(jogador.transform.position.x - transform.position.x) <= 0.1 ? 0 : (jogador.transform.position.x > transform.position.x ? 1 : -1));
         else 
-        if(estado == 2 && tempoDecorrido >= tempoEntreAcao) Action();
+        if(estado == 2 && tempoDaUltimaAcao >= tempoEntreAcao) Action();
 
 
         controle.aplicarMovimento(movimentoHorizontal, pulando);

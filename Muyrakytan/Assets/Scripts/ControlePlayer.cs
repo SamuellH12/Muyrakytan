@@ -6,7 +6,7 @@ using UnityEngine;
 public class ControlePlayer : MonoBehaviour
 {
     [Header("Movimentação")]
-    [SerializeField] private float velocidade = 50f;
+    [SerializeField] public float velocidade = 50f;
     public bool controlavel = true;
     private float movimentoHorizontal = 0f;
     private bool pulando = false;
@@ -20,6 +20,7 @@ public class ControlePlayer : MonoBehaviour
     [SerializeField] private int danoDaFlechaANoite = 3;
     [SerializeField] private float cooldown = 0.5f;
     private float tempoDaFlecha = 0;
+    public bool podeAtirarFlechas = true;
 
     private Rigidbody2D Rig;
     private Controle2D controle;
@@ -41,7 +42,7 @@ public class ControlePlayer : MonoBehaviour
         if(controlavel && Input.GetButtonDown("Jump")) pulando = true;
 
         tempoDaFlecha += Time.deltaTime;
-        if((Input.GetKeyDown(KeyCode.UpArrow)) && tempoDaFlecha >= cooldown && vidaEnergia.energiaAtual > 0 && !PauseControl.paused) AtirarFlecha();
+        if((Input.GetKeyDown(KeyCode.UpArrow)) && tempoDaFlecha >= cooldown && vidaEnergia.energiaAtual > 0 && !UIControl.paused) AtirarFlecha();
     }
 
     void FixedUpdate()
@@ -74,4 +75,16 @@ public class ControlePlayer : MonoBehaviour
 
         Destroy(flecha.gameObject, 5f);
     }
+
+
+    public void DesabilitaControles(){
+        controlavel = false;
+        podeAtirarFlechas = false;
+    }
+
+    public void HabilitaControles(){
+        controlavel = false;
+        podeAtirarFlechas = false;
+    }
 }
+
