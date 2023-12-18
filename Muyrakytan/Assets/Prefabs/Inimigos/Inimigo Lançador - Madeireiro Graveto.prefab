@@ -49,9 +49,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8344177039987311228, guid: a99d72f45cb45f245a0dc5e6d3aba0d7, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 3641973621265827346, guid: 3a68a476c8f4f504ca4d364985c4d635, type: 3}
+    - target: {fileID: 8344177039987311228, guid: a99d72f45cb45f245a0dc5e6d3aba0d7, type: 3}
+      propertyPath: qtdDeDrops
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344177039987311228, guid: a99d72f45cb45f245a0dc5e6d3aba0d7, type: 3}
       propertyPath: ObjetoJogado
       value: 
       objectReference: {fileID: 593648171933093993, guid: ec36bae6d4453d94297a84115c8fa4ed, type: 3}
+    - target: {fileID: 8344177039987311228, guid: a99d72f45cb45f245a0dc5e6d3aba0d7, type: 3}
+      propertyPath: tempoProItemDesaparecer
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8379460929900811073, guid: a99d72f45cb45f245a0dc5e6d3aba0d7, type: 3}
       propertyPath: m_Sprite
       value: 

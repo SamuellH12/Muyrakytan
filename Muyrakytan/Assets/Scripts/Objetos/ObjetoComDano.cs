@@ -21,6 +21,7 @@ public class ObjetoComDano : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(danoConstante) return;
+        if(autoDestruirAposDano && collision.transform.tag == "flecha" ) Destroy(gameObject);
         if(collision.transform.tag != "Player") return;
 
         collision.transform.GetComponent<VidaPlayer>().Dano(danoCausado);

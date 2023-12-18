@@ -7,19 +7,24 @@ public class UIControl : MonoBehaviour
 
     public static bool paused = false;
     private static bool pauseMenuActive = false;
+    private static bool showingPauseMenu = false;
     public static StatsUI statsUI;
-    public static Transform MenuInGame;
-    public static Transform MenuPause;
+    [SerializeField] public Transform MenuInGame;
+    [SerializeField] public Transform MenuPause;
+
+    
 
     void Start(){
-        MenuInGame =  GameObject.FindWithTag("MenuInGame").transform;
-        MenuPause =  GameObject.FindWithTag("MenuPause").transform;
+        if(MenuInGame == null) MenuInGame =  GameObject.FindWithTag("MenuInGame").transform;
+        if(MenuPause == null) MenuPause =  GameObject.FindWithTag("MenuPause").transform;
         if(MenuPause != null) MenuPause.gameObject.SetActive(false);
     }
 
     void Update()
     {
        if (Input.GetKeyDown(KeyCode.Escape)) PauseGame(true);
+
+        if(pauseMenuActive != showingPauseMenu ) efetivarMenuPause();
     }
 
     public static void PauseGame(bool showMenu = true)
@@ -28,22 +33,12 @@ public class UIControl : MonoBehaviour
 
         Time.timeScale = paused ? 0f : 1f;
 
-        if(paused && showMenu)
-        {
-            // mostrar o menu de pause
-            ShowMenuInGame(false);
-            MenuPause.gameObject.SetActive(true);
-            pauseMenuActive = true;
-        }
+        if(paused && showMenu) pauseMenuActive = true;
         else
-        if(!paused && pauseMenuActive)
-        {
-            MenuPause.gameObject.SetActive(false);
-            ShowMenuInGame(true);
-        }
+        if(!paused && pauseMenuActive) pauseMenuActive = false;
     }
 
-    public static void ShowMenuInGame(bool show = true)
+    public void ShowMenuInGame(bool show = true)
     {
         MenuInGame.gameObject.SetActive(show);
     }
@@ -51,17 +46,12 @@ public class UIControl : MonoBehaviour
     public static void WinGame()
     {
         // PauseGame(false);
-
-
-
     }
 
     // Chamado em VidaPlayer / Morte()
     public static void GameOver()
     {
         PauseGame(false);
-
-
     }
 
     
@@ -70,7 +60,12 @@ public class UIControl : MonoBehaviour
     }
 
 
-    
-
+    public void efetivarMenuPause(){
+        showingPauseMenu = pauseMenuActive;
+        
+        MenuPause.gameObject.SetActive(pauseMenuActive);
+        
+        ShowMenuInGame(!pauseMenuActive);
+    }
 
 }

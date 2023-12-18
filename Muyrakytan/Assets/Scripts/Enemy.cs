@@ -117,7 +117,7 @@ public class Enemy : MonoBehaviour
     private void Morte(){
         //animação de morte
 
-        if(qtdDeDrops > 0)
+        if(qtdDeDrops > 0 && drop != null)
         {
             for(int i=0; i<qtdDeDrops; i++)
             {
@@ -127,8 +127,9 @@ public class Enemy : MonoBehaviour
                 Vector2 dir = (jogador.transform.position - transform.position);
                 dir.x += Random.Range(-2, 2);
                 dir.y += Random.Range(-2, 2);
-
-                obj.GetComponent<Rigidbody2D>().AddForce(dir, ForceMode2D.Impulse);
+                
+                Rigidbody2D rg = obj.GetComponent<Rigidbody2D>();
+                if(rg != null) rg.AddForce(dir, ForceMode2D.Impulse);
             }
         }
 

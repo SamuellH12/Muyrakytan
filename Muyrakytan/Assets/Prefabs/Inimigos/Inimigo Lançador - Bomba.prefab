@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 4546003959244010551, guid: 9a767d4aa3c7fa8428453ba140faa489, type: 3}
     - target: {fileID: 8674624488359286338, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
       propertyPath: tempoEntreAcao
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8674624488359286338, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
       propertyPath: velocidadeDoLancamento
