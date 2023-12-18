@@ -28,7 +28,9 @@ public class InimigoDash : Enemy
                 Destroy(eff.gameObject, 5f);
             }
 
+            inAction = true;
             StartCoroutine("Dash");
+            tempoDecorrido = tempoDaUltimaAcao = 0;
         }
     }
 
