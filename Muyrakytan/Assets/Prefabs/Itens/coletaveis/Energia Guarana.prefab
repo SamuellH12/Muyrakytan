@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8511044067292403542
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 920361929159180001, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e65058a714247234d8c38ada448221e9, type: 3}
+    - target: {fileID: 1380838208901597635, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380838208901597635, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380838208901597635, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380838208901597635, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380838208901597635, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380838208901597635, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380838208901597635, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380838208901597635, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380838208901597635, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380838208901597635, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108797613324204731, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: vidaRecuperada
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108797613324204731, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: energiaRecuperada
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942611299512897860, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
+      propertyPath: m_Name
+      value: Energia Guarana
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
