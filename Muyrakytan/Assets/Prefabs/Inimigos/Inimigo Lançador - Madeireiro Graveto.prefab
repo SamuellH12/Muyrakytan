@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: 8344177039987311228, guid: a99d72f45cb45f245a0dc5e6d3aba0d7, type: 3}
       propertyPath: drop
       value: 
-      objectReference: {fileID: 3641973621265827346, guid: 3a68a476c8f4f504ca4d364985c4d635, type: 3}
+      objectReference: {fileID: 4942611299512897860, guid: 6b1412b954fad8645ae6e664b28b9c7e, type: 3}
     - target: {fileID: 8344177039987311228, guid: a99d72f45cb45f245a0dc5e6d3aba0d7, type: 3}
       propertyPath: vidaAtual
       value: 5

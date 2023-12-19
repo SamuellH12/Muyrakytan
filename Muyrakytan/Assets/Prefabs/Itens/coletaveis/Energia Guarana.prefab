@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2108797613324204731, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
       propertyPath: energiaRecuperada
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4942611299512897860, guid: 2526b26ca9341034b84fe197608691e3, type: 3}
       propertyPath: m_Name
