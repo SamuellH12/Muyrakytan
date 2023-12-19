@@ -13,13 +13,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8414748993844461649, guid: 1b7ceead64a8fda4e9ad8ac3bbb80096, type: 3}
     - target: {fileID: 632076769969520769, guid: 7237d337fed9a6d4d8806b21c70816c0, type: 3}
+      propertyPath: vidaAtual
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 632076769969520769, guid: 7237d337fed9a6d4d8806b21c70816c0, type: 3}
       propertyPath: qtdDeDrops
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 632076769969520769, guid: 7237d337fed9a6d4d8806b21c70816c0, type: 3}
       propertyPath: ObjetoJogado
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1564097718553689401, guid: 077652a95a6a9c349a48f13639fd90c1, type: 3}
     - target: {fileID: 890199351991521792, guid: 7237d337fed9a6d4d8806b21c70816c0, type: 3}
       propertyPath: m_Name
       value: "Inimigo Lan\xE7ador - Madeireiro Armadilha"
