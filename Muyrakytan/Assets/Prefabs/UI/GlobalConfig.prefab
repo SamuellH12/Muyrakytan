@@ -210,6 +210,8 @@ MonoBehaviour:
   barraDeEnergia: {fileID: 3833187957485745069}
   chave: {fileID: 3596676849957647194}
   maracuja: {fileID: 8214529580566730364}
+  spriteLentidao: {fileID: 21300000, guid: ef615d10e6efa0247a3720a3f5fcc9fc, type: 3}
+  spriteVelocidade: {fileID: 21300000, guid: e65058a714247234d8c38ada448221e9, type: 3}
 --- !u!1 &3264043324047041925
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,6 +662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b203cfdf263264db577a15e8ab463b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MenuInGame: {fileID: 0}
+  MenuPause: {fileID: 0}
 --- !u!114 &534320600130364130
 MonoBehaviour:
   m_ObjectHideFlags: 0

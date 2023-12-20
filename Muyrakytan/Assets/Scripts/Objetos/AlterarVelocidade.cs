@@ -7,6 +7,7 @@ public class AlterarVelocidade : MonoBehaviour
     [SerializeField] private float novaVelocidade = 3f;
     [SerializeField] private float tempoComAVelocidade = 5f;
     [SerializeField] public bool autoDestruir = true;
+    [SerializeField] public bool efeitoNegativo = true;
     private bool inAction = false;
     private ControlePlayer ctrl;
 
@@ -35,7 +36,7 @@ public class AlterarVelocidade : MonoBehaviour
         ctrl.velocidade = novaVelocidade;
 
         StatsUI ui = GameObject.FindWithTag("BarraDeStats").GetComponent<StatsUI>();
-        ui.ativarMaracuja();
+        ui.ativarMaracuja(efeitoNegativo);
 
 
         yield return new WaitForSeconds(tempoComAVelocidade);

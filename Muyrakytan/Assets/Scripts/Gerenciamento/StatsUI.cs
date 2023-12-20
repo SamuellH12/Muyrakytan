@@ -26,6 +26,8 @@ public class StatsUI : MonoBehaviour
 
     [Header("Maracuja")]
     [SerializeField] public Image maracuja;
+    [SerializeField] public Sprite spriteLentidao;
+    [SerializeField] public Sprite spriteVelocidade;
     static int maracujasAtivos = 0;
 
 
@@ -67,8 +69,9 @@ public class StatsUI : MonoBehaviour
         qtdChaves = (value ? 1 : 0);
     }
 
-    public void ativarMaracuja(){
+    public void ativarMaracuja(bool lento = true){
         maracuja.enabled = true;
+        maracuja.sprite  = (lento ? spriteLentidao : spriteVelocidade);
         maracujasAtivos++;
     }
 
