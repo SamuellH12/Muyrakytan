@@ -48,7 +48,7 @@ public class StatsUI : MonoBehaviour
 
     public void AtualizarEnergia(int energiaAtual)
     {
-        fill.value = (float)energiaAtual / (float)energiaMaxima;
+        if(fill != null) fill.value = (float)energiaAtual / (float)energiaMaxima;
     }
 
     private void ResetarVidas(){

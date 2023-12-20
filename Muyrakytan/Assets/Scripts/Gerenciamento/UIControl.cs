@@ -9,14 +9,14 @@ public class UIControl : MonoBehaviour
     private static bool pauseMenuActive = false;
     private static bool showingPauseMenu = false;
     public static StatsUI statsUI;
-    [SerializeField] public Transform MenuInGame;
-    [SerializeField] public Transform MenuPause;
+    [SerializeField] public GameObject MenuInGame;
+    [SerializeField] public GameObject MenuPause;
 
     
 
     void Start(){
-        if(MenuInGame == null) MenuInGame =  GameObject.FindWithTag("MenuInGame").transform;
-        if(MenuPause == null) MenuPause =  GameObject.FindWithTag("MenuPause").transform;
+        if(MenuInGame == null) MenuInGame =  GameObject.FindWithTag("MenuInGame");
+        if(MenuPause == null) MenuPause =  GameObject.FindWithTag("MenuPause");
         if(MenuPause != null) MenuPause.gameObject.SetActive(false);
     }
 
