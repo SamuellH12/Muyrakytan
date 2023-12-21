@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIControl : MonoBehaviour
 {
@@ -8,9 +9,10 @@ public class UIControl : MonoBehaviour
     public static bool paused = false;
     private static bool pauseMenuActive = false;
     private static bool showingPauseMenu = false;
+    public static bool endGame = false;
     public static StatsUI statsUI;
-    [SerializeField] public GameObject MenuInGame;
-    [SerializeField] public GameObject MenuPause;
+    [SerializeField] public GameObject MenuInGame = null;
+    [SerializeField] public GameObject MenuPause = null;
 
     
 
@@ -22,9 +24,9 @@ public class UIControl : MonoBehaviour
 
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Escape)) PauseGame(true);
+        if(Input.GetKeyDown(KeyCode.Escape) && !endGame) PauseGame(true);
 
-        if(pauseMenuActive != showingPauseMenu ) efetivarMenuPause();
+        if(pauseMenuActive != showingPauseMenu) efetivarMenuPause();
     }
 
     public static void PauseGame(bool showMenu = true)
@@ -40,7 +42,7 @@ public class UIControl : MonoBehaviour
 
     public void ShowMenuInGame(bool show = true)
     {
-        MenuInGame.gameObject.SetActive(show);
+        MenuInGame.SetActive(show); 
     }
 
     public static void WinGame()
@@ -52,20 +54,21 @@ public class UIControl : MonoBehaviour
     public static void GameOver()
     {
         PauseGame(false);
-    }
-
-    
-    public static void AtivarDesativarUI(bool val=true){
-        // statsUI.SetActive(valor);
+        endGame = true;
     }
 
 
     public void efetivarMenuPause(){
         showingPauseMenu = pauseMenuActive;
         
-        MenuPause.gameObject.SetActive(pauseMenuActive);
+        MenuPause.SetActive(pauseMenuActive);
         
         ShowMenuInGame(!pauseMenuActive);
+    }
+
+    public void AlterarCena(string nome = "MenuPrincipal")
+    {
+        SceneManager.LoadScene(nome);
     }
 
 }
