@@ -5,7 +5,6 @@ using UnityEngine.Rendering.Universal;
 
 public class CicloDaNoite : MonoBehaviour
 {
-
     // receber como parâmetro os grupos dos ceus/estrelas
     // criar um script separado para elementos que trocam de cor, baseado no static Noite
 

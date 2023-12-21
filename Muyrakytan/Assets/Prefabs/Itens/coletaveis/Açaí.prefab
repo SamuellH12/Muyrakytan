@@ -53,6 +53,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3397601691804483055, guid: f2f83bc363b127349b10c8cc30da1cb1, type: 3}
+      propertyPath: efeitoNegativo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3397601691804483055, guid: f2f83bc363b127349b10c8cc30da1cb1, type: 3}
       propertyPath: novaVelocidade
       value: 14
       objectReference: {fileID: 0}

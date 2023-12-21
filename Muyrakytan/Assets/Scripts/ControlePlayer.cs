@@ -42,7 +42,7 @@ public class ControlePlayer : MonoBehaviour
         if(controlavel && Input.GetButtonDown("Jump")) pulando = true;
 
         tempoDaFlecha += Time.deltaTime;
-        if((Input.GetKeyDown(KeyCode.UpArrow)) && tempoDaFlecha >= cooldown && vidaEnergia.energiaAtual > 0 && !UIControl.paused) AtirarFlecha();
+        if(((Input.GetKeyDown(KeyCode.UpArrow)) || Input.GetButtonDown("Fire1")) && tempoDaFlecha >= cooldown && vidaEnergia.energiaAtual > 0 && !UIControl.paused) AtirarFlecha();
     }
 
     void FixedUpdate()

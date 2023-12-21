@@ -13,12 +13,16 @@ public class UIControl : MonoBehaviour
     public static StatsUI statsUI;
     [SerializeField] public GameObject MenuInGame = null;
     [SerializeField] public GameObject MenuPause = null;
+    [SerializeField] public GameObject MenuOver = null;
+    [SerializeField] public GameObject MenuWin = null;
 
     
 
     void Start(){
         if(MenuInGame == null) MenuInGame =  GameObject.FindWithTag("MenuInGame");
         if(MenuPause == null) MenuPause =  GameObject.FindWithTag("MenuPause");
+        if(MenuOver == null) MenuOver =  GameObject.FindWithTag("MenuGameOver");
+        if(MenuWin == null) MenuWin =  GameObject.FindWithTag("MenuWin");
         if(MenuPause != null) MenuPause.gameObject.SetActive(false);
     }
 
@@ -41,23 +45,33 @@ public class UIControl : MonoBehaviour
         if(!paused && pauseMenuActive) pauseMenuActive = false;
     }
 
-    public void ShowMenuInGame(bool show = true){ MenuInGame.SetActive(show); }
-
+    //chamado pelo Baú
     public static void WinGame()
     {
-        // PauseGame(false);
         endGame = true;
+        paused = true;
+        Time.timeScale = 0f;
+
+        GameObject.FindWithTag("GlobalConfig").GetComponent<UIControl>().ShowMenuWin(true);
     }
 
-    // Chamado em VidaPlayer / Morte()
+    // Chamado em VidaPlayer -> Morte()
     public static void GameOver()
     {
-        PauseGame(false);
         endGame = true;
+        paused = true;
+        Time.timeScale = 0f;
+
+        GameObject.FindWithTag("GlobalConfig").GetComponent<UIControl>().ShowMenuOver(true);
     }
 
 
-    public void efetivarMenuPause(){
+    public void ShowMenuInGame(bool show = true){ MenuInGame.SetActive(show); }
+    public void ShowMenuOver(bool show = true){ MenuOver.SetActive(show); }
+    public void ShowMenuWin(bool show = true){ MenuWin.SetActive(show); }
+
+    public void efetivarMenuPause()
+    {
         showingPauseMenu = pauseMenuActive;
         
         MenuPause.SetActive(pauseMenuActive);
@@ -65,9 +79,22 @@ public class UIControl : MonoBehaviour
         ShowMenuInGame(!pauseMenuActive);
     }
 
+
     public void AlterarCena(string nome = "MenuPrincipal")
+    { 
+        UIControl.ResetConfig();
+        SceneManager.LoadScene(nome); 
+    }
+
+    public void RecarregarScene(){ AlterarCena(SceneManager.GetActiveScene().name); }
+
+    public static void ResetConfig()
     {
-        SceneManager.LoadScene(nome);
+        CicloDaNoite.noite = false;
+        Time.timeScale = 1f;
+
+        paused = pauseMenuActive = showingPauseMenu = false;
+        endGame = false;
     }
 
 }
