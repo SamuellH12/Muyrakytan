@@ -83,8 +83,10 @@ public class ControlePlayer : MonoBehaviour
     }
 
     public void HabilitaControles(){
-        controlavel = false;
-        podeAtirarFlechas = false;
+        controlavel = true;
+        podeAtirarFlechas = true;
     }
+
+    public void Pular(){ pulando = true; }
 }
 
