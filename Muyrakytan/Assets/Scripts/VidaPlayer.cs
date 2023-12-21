@@ -102,8 +102,8 @@ public class VidaPlayer : MonoBehaviour
 
     private void AtualizaUI()
     {
-        Debug.Log("Vidas: " + vidaAtual);
-        Debug.Log("Energia: " + energiaAtual);
+        // Debug.Log("Vidas: " + vidaAtual);
+        // Debug.Log("Energia: " + energiaAtual);
         // atualizar quantidade de corações na interface de usuário
         barraDeStats.AtualizarVidas(vidaAtual);
         barraDeStats.AtualizarEnergia(energiaAtual);

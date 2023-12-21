@@ -54,16 +54,15 @@ public class CicloDaNoite : MonoBehaviour
 
     public void Anoitecer(int faseDaLua = 0)
     {
+        if(noite) return;
         noite = true;
-        /*
-            Editar Lua de acordo com a fase
-        */
         StartCoroutine("TransicaoDiaNoite");
         StartCoroutine("TransicaoLua");
     }
 
     public void Amanhecer()
     {
+        if(!noite) return;
         noite = false;
         StartCoroutine("TransicaoDiaNoite");
         StartCoroutine("TransicaoLua");
