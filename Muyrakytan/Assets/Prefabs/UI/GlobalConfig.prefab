@@ -2265,7 +2265,7 @@ MonoBehaviour:
   luzGlobal: {fileID: 501297922561647295}
   corDaLuzDia: {r: 1, g: 1, b: 1, a: 1}
   corDaLuzNoite: {r: 0.09019608, g: 0.14117648, b: 0.23529412, a: 1}
-  tempoDeTransicao: 1.5
+  tempoDeTransicao: 3
   quantidadeDePassos: 100
 --- !u!1 &6047096863914881085
 GameObject:
