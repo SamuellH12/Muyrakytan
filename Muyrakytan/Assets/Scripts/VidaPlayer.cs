@@ -9,6 +9,7 @@ public class VidaPlayer : MonoBehaviour
     [SerializeField] public int vidaAtual = 10;
     [SerializeField] private float tempoInvulneravel = 1f;
     [SerializeField] private StatsUI barraDeStats;
+    [SerializeField] public Transform checkPoint;
 
     [Header("Energia")]
     [SerializeField] public int energiaMaxima = 100;
@@ -37,12 +38,13 @@ public class VidaPlayer : MonoBehaviour
         if(barraDeStats == null) barraDeStats = GameObject.FindWithTag("BarraDeStats").GetComponent<StatsUI>();
         barraDeStats.SetMaxValues(vidaMaxima, energiaMaxima);
         AtualizaUI();
+        //cria um "checkpoint" temporário no início do nível
+        GameObject temp = new GameObject("InicioDoNivel");
+        temp.transform.position = transform.position;
+        checkPoint = temp.transform;
     }
 
-    void Update() 
-    { 
-        tempoDecorrido += Time.deltaTime;
-    }
+    void Update(){ tempoDecorrido += Time.deltaTime; }
 
 
     public void Dano(int dano=1)
@@ -91,13 +93,17 @@ public class VidaPlayer : MonoBehaviour
 
 
     private void Morte()
-    {
+    {  
         GetComponent<ControlePlayer>().controlavel = false;
-
-        //animação de morte
-        //tela de GameOver
-
         UIControl.GameOver();
+    }
+
+    public void ResetarPlayer(){
+        GetComponent<ControlePlayer>().controlavel = true;
+        transform.position = checkPoint.transform.position;
+        vidaAtual = vidaMaxima / 2;
+        if(energiaAtual < energiaMaxima / 2) energiaAtual = energiaMaxima / 2;
+        AtualizaUI();
     }
 
     private void AtualizaUI()

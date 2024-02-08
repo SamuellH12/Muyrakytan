@@ -31,6 +31,8 @@ public class Enemy : MonoBehaviour
     protected Color originalColor = new Color(1f, 1f, 1f);
     protected SpriteRenderer sprite;
     protected int qtdDeEventosDeDano = 0;
+    public bool redimido = false;
+    [SerializeField] protected Sprite spriteRedimido;
 
 
     [Header("Drops")]
@@ -50,6 +52,7 @@ public class Enemy : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         originalColor = sprite.color;
         if(jogador == null) jogador = GameObject.FindWithTag("Player").transform;
+        if(spriteRedimido == null) spriteRedimido = sprite.sprite;
     }
 
     
@@ -58,6 +61,7 @@ public class Enemy : MonoBehaviour
         Vector2 distJogadorV = jogador.transform.position - transform.position;
         distJogador = distJogadorV.magnitude;
         float maxDist = Mathf.Max(Mathf.Abs(distJogadorV.x), Mathf.Abs(distJogadorV.y));
+        if(redimido && estado < 3) estado = 4;
 
         if(estado == 0 && maxDist <= raioDePercepcao) estado = 1;
         else
@@ -70,9 +74,11 @@ public class Enemy : MonoBehaviour
         if(estado == 3 && tempoDecorrido >= tempoTransicao){ estado = 0; tempoDecorrido = 0; controle.flip(); }
         else
         if(estado == 0 && tempoDecorrido >= tempoAndando){ estado = 3; tempoDecorrido = 0; }
+        else
+        if(estado == 4 && tempoDecorrido >= tempoAndando){ estado = 5; tempoDecorrido = 0; }
+        
 
-
-        if(estado == 0 || estado == 3 || estado == 2) tempoDecorrido += Time.deltaTime;
+        if(estado == 0 || estado == 3 || estado == 2 || estado == 4) tempoDecorrido += Time.deltaTime;
         else tempoDecorrido = 0;
         tempoDaUltimaAcao += Time.deltaTime;
         // if ( Input.GetKeyDown(KeyCode.Space)) Action();
@@ -80,11 +86,13 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(estado == 0 && anda) movimentoHorizontal = velocidadeNormal * (controle.facingDir ? 1 : -1);
+        if(estado%4 == 0 && anda) movimentoHorizontal = velocidadeNormal * (controle.facingDir ? 1 : -1);
         else
         if(estado == 1 && anda) movimentoHorizontal = velocidadeCorrendo * (Mathf.Abs(jogador.transform.position.x - transform.position.x) <= 0.1 ? 0 : (jogador.transform.position.x > transform.position.x ? 1 : -1));
         else 
         if(estado == 2 && tempoDaUltimaAcao >= tempoEntreAcao) Action();
+        else
+        if(estado == 5) RedemptionAction();
 
 
         controle.aplicarMovimento(movimentoHorizontal, pulando);
@@ -94,6 +102,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Action(){}
     public virtual void ResetAction(){}
+    public virtual void RedemptionAction(){}
 
     private void OnDrawGizmosSelected()
     {
@@ -115,6 +124,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void Morte(){
+        if(redimido) return;
         //animação de morte
 
         if(qtdDeDrops > 0 && drop != null)
@@ -133,7 +143,11 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
+        //GetComponent<Animator>().Play("redencao");
+        
+        redimido = true;
+
+        //Destroy(gameObject);
     }
 
     IEnumerator TrocarCor(){
@@ -146,6 +160,8 @@ public class Enemy : MonoBehaviour
 
         if(qtdDeEventosDeDano == 0) sprite.color = originalColor;
     }
+
+
 }
 
 
@@ -156,6 +172,9 @@ public class Enemy : MonoBehaviour
     1 - Perseguição [O Player está na área de percebepção do inimigo. O inimigo corre em direção ao player]
     2 - Ação [O Player está na área de ação. O inimigo executa sua ação em particular]
     3 - Transição [O inimigo fica parado por x segundos]
+
+    4 - Patrulha (Redimido)
+    5 - Ação (Redimido)
 
     MUDANÇA DE ESTADOS
 

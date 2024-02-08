@@ -15,6 +15,7 @@ public class UIControl : MonoBehaviour
     [SerializeField] public GameObject MenuPause = null;
     [SerializeField] public GameObject MenuOver = null;
     [SerializeField] public GameObject MenuWin = null;
+    [SerializeField] public Transform CheckPoint = null;
 
     
 
@@ -70,6 +71,16 @@ public class UIControl : MonoBehaviour
     public void ShowMenuOver(bool show = true){ MenuOver.SetActive(show); }
     public void ShowMenuWin(bool show = true){ MenuWin.SetActive(show); }
 
+    public void RenascerPlayerNoCheckPoint(){
+        GameObject.FindWithTag("Player").transform.GetComponent<VidaPlayer>().ResetarPlayer();
+        
+        endGame = false;
+        paused = pauseMenuActive = showingPauseMenu = false;
+        Time.timeScale = 1f;
+
+        ShowMenuOver(false);
+    }
+
     public void efetivarMenuPause()
     {
         showingPauseMenu = pauseMenuActive;
@@ -78,7 +89,6 @@ public class UIControl : MonoBehaviour
         
         ShowMenuInGame(!pauseMenuActive);
     }
-
 
     public void AlterarCena(string nome = "MenuPrincipal")
     { 
