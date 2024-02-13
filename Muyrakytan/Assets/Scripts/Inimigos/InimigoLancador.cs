@@ -18,6 +18,8 @@ public class InimigoLancador : Enemy
         tempoDecorrido = 0;
         tempoDaUltimaAcao = 0;
 
+        anim.Play("arremessar");
+
         GameObject obj = Instantiate(ObjetoJogado);
         obj.transform.position = OrigemDoAtaque.position;
         Rigidbody2D rbObj = obj.GetComponent<Rigidbody2D>();

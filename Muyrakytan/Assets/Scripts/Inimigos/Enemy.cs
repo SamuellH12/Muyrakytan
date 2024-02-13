@@ -29,10 +29,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float tempoCorDano = 1f;
     [SerializeField] protected Color corDeDano = new Color(1f, 1f, 1f);
     protected Color originalColor = new Color(1f, 1f, 1f);
-    protected SpriteRenderer sprite;
     protected int qtdDeEventosDeDano = 0;
-    public bool redimido = false;
-    [SerializeField] protected Sprite spriteRedimido;
+    [SerializeField] private GameObject redimido;
+
 
 
     [Header("Drops")]
@@ -42,6 +41,8 @@ public class Enemy : MonoBehaviour
 
     protected Rigidbody2D Rig;
     protected Controle2D controle;
+    protected SpriteRenderer sprite;
+    protected Animator anim;
     
     // encontrar o player sem instanciar -> GameObject.Find("Player")
 
@@ -50,9 +51,9 @@ public class Enemy : MonoBehaviour
         controle = GetComponent<Controle2D>();
         Rig = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         originalColor = sprite.color;
         if(jogador == null) jogador = GameObject.FindWithTag("Player").transform;
-        if(spriteRedimido == null) spriteRedimido = sprite.sprite;
     }
 
     
@@ -61,7 +62,6 @@ public class Enemy : MonoBehaviour
         Vector2 distJogadorV = jogador.transform.position - transform.position;
         distJogador = distJogadorV.magnitude;
         float maxDist = Mathf.Max(Mathf.Abs(distJogadorV.x), Mathf.Abs(distJogadorV.y));
-        if(redimido && estado < 3) estado = 4;
 
         if(estado == 0 && maxDist <= raioDePercepcao) estado = 1;
         else
@@ -74,11 +74,12 @@ public class Enemy : MonoBehaviour
         if(estado == 3 && tempoDecorrido >= tempoTransicao){ estado = 0; tempoDecorrido = 0; controle.flip(); }
         else
         if(estado == 0 && tempoDecorrido >= tempoAndando){ estado = 3; tempoDecorrido = 0; }
-        else
-        if(estado == 4 && tempoDecorrido >= tempoAndando){ estado = 5; tempoDecorrido = 0; }
         
+        if(estado == 0 || estado == 1) anim.SetBool("andando", true);
+        else
+        if(estado == 2 || estado == 3) anim.SetBool("andando", false);
 
-        if(estado == 0 || estado == 3 || estado == 2 || estado == 4) tempoDecorrido += Time.deltaTime;
+        if(estado == 0 || estado == 3 || estado == 2) tempoDecorrido += Time.deltaTime;
         else tempoDecorrido = 0;
         tempoDaUltimaAcao += Time.deltaTime;
         // if ( Input.GetKeyDown(KeyCode.Space)) Action();
@@ -124,7 +125,6 @@ public class Enemy : MonoBehaviour
     }
 
     private void Morte(){
-        if(redimido) return;
         //animação de morte
 
         if(qtdDeDrops > 0 && drop != null)
@@ -143,11 +143,16 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        //GetComponent<Animator>().Play("redencao");
-        
-        redimido = true;
-
+        anim.Play("redencao");
         //Destroy(gameObject);
+    }
+
+    public void trocarParaRedimido(){
+        //chamado pela animação
+        GameObject novo = Instantiate(redimido);
+        novo.transform.position = transform.position;
+
+        Destroy(gameObject);
     }
 
     IEnumerator TrocarCor(){
@@ -172,9 +177,6 @@ public class Enemy : MonoBehaviour
     1 - Perseguição [O Player está na área de percebepção do inimigo. O inimigo corre em direção ao player]
     2 - Ação [O Player está na área de ação. O inimigo executa sua ação em particular]
     3 - Transição [O inimigo fica parado por x segundos]
-
-    4 - Patrulha (Redimido)
-    5 - Ação (Redimido)
 
     MUDANÇA DE ESTADOS
 
