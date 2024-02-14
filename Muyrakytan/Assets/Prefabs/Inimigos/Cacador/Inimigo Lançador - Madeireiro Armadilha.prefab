@@ -8,10 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 444808123153847193, guid: 7237d337fed9a6d4d8806b21c70816c0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c19df59321217554798d85957a21e56a, type: 2}
     - target: {fileID: 632076769969520769, guid: 7237d337fed9a6d4d8806b21c70816c0, type: 3}
       propertyPath: drop
       value: 
       objectReference: {fileID: 8414748993844461649, guid: 1b7ceead64a8fda4e9ad8ac3bbb80096, type: 3}
+    - target: {fileID: 632076769969520769, guid: 7237d337fed9a6d4d8806b21c70816c0, type: 3}
+      propertyPath: redimido
+      value: 
+      objectReference: {fileID: 7083781742399759233, guid: ac12a7aa04239734d9c09e09a294e7d3, type: 3}
     - target: {fileID: 632076769969520769, guid: 7237d337fed9a6d4d8806b21c70816c0, type: 3}
       propertyPath: vidaAtual
       value: 18
@@ -31,7 +39,7 @@ PrefabInstance:
     - target: {fileID: 1098946367191372220, guid: 7237d337fed9a6d4d8806b21c70816c0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2079601566, guid: b8c92ac005dd0f9449da75994cdbb380, type: 3}
+      objectReference: {fileID: 112924605, guid: 4430a473d93d23b41ad1c8da499e8186, type: 3}
     - target: {fileID: 7459484679686239196, guid: 7237d337fed9a6d4d8806b21c70816c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

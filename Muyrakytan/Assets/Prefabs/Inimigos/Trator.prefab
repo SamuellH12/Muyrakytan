@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 1720914936125076210}
   - component: {fileID: 1099222206649778619}
   - component: {fileID: 8950253239223575344}
+  - component: {fileID: 6170039906811600794}
   m_Layer: 3
   m_Name: Trator
   m_TagString: Enemy
@@ -234,6 +235,7 @@ MonoBehaviour:
   vidaAtual: 14
   tempoCorDano: 1
   corDeDano: {r: 0.990566, g: 0.2943663, b: 0.2943663, a: 1}
+  redimido: {fileID: 0}
   qtdDeDrops: 15
   drop: {fileID: 4942611299512897860, guid: 6b1412b954fad8645ae6e664b28b9c7e, type: 3}
   velocidadeDash: 250
@@ -314,3 +316,24 @@ MonoBehaviour:
   groundCheck: {fileID: 1798124633245541534}
   facingDir: 0
   raioChaoCheck: 0.2
+--- !u!95 &6170039906811600794
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7814674774500122324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d33e11d30ed2a6a40b955cff5854a9e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

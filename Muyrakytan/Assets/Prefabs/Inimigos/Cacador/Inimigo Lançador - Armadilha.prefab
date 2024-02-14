@@ -48,10 +48,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8542103481367594330, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c19df59321217554798d85957a21e56a, type: 2}
     - target: {fileID: 8674624488359286338, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
       propertyPath: drop
       value: 
       objectReference: {fileID: 4942611299512897860, guid: 6b1412b954fad8645ae6e664b28b9c7e, type: 3}
+    - target: {fileID: 8674624488359286338, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
+      propertyPath: redimido
+      value: 
+      objectReference: {fileID: 7083781742399759233, guid: ac12a7aa04239734d9c09e09a294e7d3, type: 3}
     - target: {fileID: 8674624488359286338, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
       propertyPath: qtdDeDrops
       value: 6
@@ -87,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 9216579924702644095, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2079601566, guid: b8c92ac005dd0f9449da75994cdbb380, type: 3}
+      objectReference: {fileID: 112924605, guid: 4430a473d93d23b41ad1c8da499e8186, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

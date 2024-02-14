@@ -53,6 +53,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4942611299512897860, guid: 6b1412b954fad8645ae6e664b28b9c7e, type: 3}
     - target: {fileID: 8344177039987311228, guid: a99d72f45cb45f245a0dc5e6d3aba0d7, type: 3}
+      propertyPath: redimido
+      value: 
+      objectReference: {fileID: 7083781742399759233, guid: fad195a89e4a41d4399fc0341ffb413f, type: 3}
+    - target: {fileID: 8344177039987311228, guid: a99d72f45cb45f245a0dc5e6d3aba0d7, type: 3}
       propertyPath: vidaAtual
       value: 5
       objectReference: {fileID: 0}
@@ -76,6 +80,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Inimigo Lan\xE7ador - Madeireiro Graveto"
       objectReference: {fileID: 0}
+    - target: {fileID: 9017798642772103524, guid: a99d72f45cb45f245a0dc5e6d3aba0d7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 85f31b18cbe851a4baf8009eed1cb805, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

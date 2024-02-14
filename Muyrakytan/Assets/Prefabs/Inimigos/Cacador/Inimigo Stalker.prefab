@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 6358101358946253112}
   - component: {fileID: 2923971780303164996}
   - component: {fileID: 7882670318352631369}
+  - component: {fileID: -2292824551436525710}
   m_Layer: 6
   m_Name: Inimigo Stalker
   m_TagString: Enemy
@@ -141,7 +142,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2079601566, guid: b8c92ac005dd0f9449da75994cdbb380, type: 3}
+  m_Sprite: {fileID: 112924605, guid: 4430a473d93d23b41ad1c8da499e8186, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -259,7 +260,29 @@ MonoBehaviour:
   vidaAtual: 3
   tempoCorDano: 1
   corDeDano: {r: 0.9528302, g: 0.32809716, b: 0.32809716, a: 1}
+  redimido: {fileID: 7083781742399759233, guid: ac12a7aa04239734d9c09e09a294e7d3, type: 3}
   qtdDeDrops: 3
   drop: {fileID: 3641973621265827346, guid: 3a68a476c8f4f504ca4d364985c4d635, type: 3}
   dano: 1
   particulas: {fileID: 2998659356077021615, guid: 13cea7f9c1d30364f9d92d8a341e5a0b, type: 3}
+--- !u!95 &-2292824551436525710
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9006492140972065987}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c19df59321217554798d85957a21e56a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

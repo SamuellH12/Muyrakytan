@@ -48,10 +48,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8542103481367594330, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 183521c74496d8d498fc58edf16a2fea, type: 2}
     - target: {fileID: 8674624488359286338, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
       propertyPath: drop
       value: 
       objectReference: {fileID: 4942611299512897860, guid: 6b1412b954fad8645ae6e664b28b9c7e, type: 3}
+    - target: {fileID: 8674624488359286338, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
+      propertyPath: redimido
+      value: 
+      objectReference: {fileID: 7083781742399759233, guid: c1fd5f00cffdb0746b5b0d5e71ceb0c7, type: 3}
     - target: {fileID: 8674624488359286338, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
       propertyPath: ObjetoJogado
       value: 
@@ -75,7 +83,7 @@ PrefabInstance:
     - target: {fileID: 9216579924702644095, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2041953333, guid: b8c92ac005dd0f9449da75994cdbb380, type: 3}
+      objectReference: {fileID: -645112425, guid: 52ef6008ef04971428886729ce16692f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

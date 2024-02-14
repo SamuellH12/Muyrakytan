@@ -125,6 +125,7 @@ public class Enemy : MonoBehaviour
     private void Morte(){
         //animação de morte
 
+
         if(qtdDeDrops > 0 && drop != null)
         {
             for(int i=0; i<qtdDeDrops; i++)
@@ -141,9 +142,10 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        if(redimido == null) Destroy(gameObject);
+
         vivo = anda = false;
         anim.Play("redencao");
-        //Destroy(gameObject);
     }
 
     public void trocarParaRedimido(){
