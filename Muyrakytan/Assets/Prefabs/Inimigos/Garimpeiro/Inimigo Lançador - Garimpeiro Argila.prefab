@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 632076769969520769, guid: 7237d337fed9a6d4d8806b21c70816c0, type: 3}
+      propertyPath: vidaAtual
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 632076769969520769, guid: 7237d337fed9a6d4d8806b21c70816c0, type: 3}
       propertyPath: qtdDeDrops
       value: 8
       objectReference: {fileID: 0}

@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 8414748993844461649, guid: 1b7ceead64a8fda4e9ad8ac3bbb80096, type: 3}
     - target: {fileID: 8674624488359286338, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
       propertyPath: vidaAtual
-      value: 18
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8674624488359286338, guid: f972761d29ec39847b1648eff2360cbc, type: 3}
       propertyPath: qtdDeDrops
