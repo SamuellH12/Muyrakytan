@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
-  m_LightType: 1
+  m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
   m_Color: {r: 0.6933962, g: 0.987744, b: 1, a: 1}
@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.007550001, y: -0.012799978, z: 0}
-    m_Extent: {x: 2.32165, y: 2.111, z: 0}
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: -0.2651081, y: -0.070073366, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 0.25228786, y: -0.22201332, z: 0}
   - {x: 0.2882843, y: 0.04509163, z: 0}
   - {x: -0.26551056, y: 0.040699005, z: 0}
 --- !u!1 &2399329737544840722
@@ -194,7 +194,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 158846225207352387}
@@ -242,7 +242,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 485e2698a9ebce84dbab70e3d40858d5, type: 3}
+  m_Sprite: {fileID: 899250846, guid: f16275e1c2aa41b488cbbe8447b6b326, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -285,8 +285,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05, y: 0}
-  m_Size: {x: 2.2, y: 2.22}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
   m_Direction: 1
 --- !u!50 &1898452447613750286
 Rigidbody2D:
@@ -330,5 +330,6 @@ MonoBehaviour:
   dano: 1
   autoDestruirAposDano: 1
   autoDestruirComImpacto: 1
-  spriteDia: {fileID: 21300000, guid: 485e2698a9ebce84dbab70e3d40858d5, type: 3}
-  spriteNoite: {fileID: 21300000, guid: 485e2698a9ebce84dbab70e3d40858d5, type: 3}
+  spriteDia: {fileID: 1752999726, guid: f16275e1c2aa41b488cbbe8447b6b326, type: 3}
+  spriteNoite: {fileID: 899250846, guid: f16275e1c2aa41b488cbbe8447b6b326, type: 3}
+  luzDuranteDia: 1

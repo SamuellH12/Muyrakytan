@@ -240,7 +240,7 @@ MonoBehaviour:
   vidaAtual: 8
   tempoCorDano: 0.5
   corDeDano: {r: 0.764151, g: 0.06127627, b: 0.06127627, a: 1}
-  redimido: {fileID: 0}
+  redimido: {fileID: 8608454697778390109, guid: 4e19db17d7113bc408d3c38e8810219e, type: 3}
   qtdDeDrops: 10
   drop: {fileID: 4942611299512897860, guid: 6b1412b954fad8645ae6e664b28b9c7e, type: 3}
   OrigemDoAtaque: {fileID: 1332934044841450708}

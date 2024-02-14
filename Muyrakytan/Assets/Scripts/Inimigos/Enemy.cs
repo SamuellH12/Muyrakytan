@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Color corDeDano = new Color(1f, 1f, 1f);
     protected Color originalColor = new Color(1f, 1f, 1f);
     protected int qtdDeEventosDeDano = 0;
+    protected bool vivo = true;
     [SerializeField] private GameObject redimido;
 
 
@@ -75,9 +76,6 @@ public class Enemy : MonoBehaviour
         else
         if(estado == 0 && tempoDecorrido >= tempoAndando){ estado = 3; tempoDecorrido = 0; }
         
-        if(estado == 0 || estado == 1) anim.SetBool("andando", true);
-        else
-        if(estado == 2 || estado == 3) anim.SetBool("andando", false);
 
         if(estado == 0 || estado == 3 || estado == 2) tempoDecorrido += Time.deltaTime;
         else tempoDecorrido = 0;
@@ -87,14 +85,15 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(estado%4 == 0 && anda) movimentoHorizontal = velocidadeNormal * (controle.facingDir ? 1 : -1);
+        if(estado == 0 && anda) movimentoHorizontal = velocidadeNormal * (controle.facingDir ? 1 : -1);
         else
         if(estado == 1 && anda) movimentoHorizontal = velocidadeCorrendo * (Mathf.Abs(jogador.transform.position.x - transform.position.x) <= 0.1 ? 0 : (jogador.transform.position.x > transform.position.x ? 1 : -1));
         else 
-        if(estado == 2 && tempoDaUltimaAcao >= tempoEntreAcao) Action();
-        else
-        if(estado == 5) RedemptionAction();
+        if(estado == 2 && tempoDaUltimaAcao >= tempoEntreAcao && vivo) Action();
 
+        if(estado == 0 || estado == 1) anim.SetBool("andando", anda);
+        else
+        if(estado == 2 || estado == 3) anim.SetBool("andando", false);
 
         controle.aplicarMovimento(movimentoHorizontal, pulando);
         movimentoHorizontal = 0;
@@ -103,7 +102,6 @@ public class Enemy : MonoBehaviour
 
     public virtual void Action(){}
     public virtual void ResetAction(){}
-    public virtual void RedemptionAction(){}
 
     private void OnDrawGizmosSelected()
     {
@@ -143,16 +141,17 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        vivo = anda = false;
         anim.Play("redencao");
         //Destroy(gameObject);
     }
 
     public void trocarParaRedimido(){
         //chamado pela animação
+        Debug.Log("Redimir");
         GameObject novo = Instantiate(redimido);
         novo.transform.position = transform.position;
-
-        Destroy(gameObject);
+        Destroy(gameObject);    
     }
 
     IEnumerator TrocarCor(){

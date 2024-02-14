@@ -11,6 +11,7 @@ public class FlechaPlayer : MonoBehaviour
     [SerializeField] private bool autoDestruirComImpacto = true;
     [SerializeField] public Sprite spriteDia;
     [SerializeField] public Sprite spriteNoite;
+    [SerializeField] public bool luzDuranteDia = false;
     //[SerializeField] 
     private Transform pontoDeLuz;
 
@@ -18,10 +19,10 @@ public class FlechaPlayer : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = (CicloDaNoite.noite ? spriteNoite : spriteDia);
         // luz de efeito
         pontoDeLuz = transform.GetChild(0);
-        pontoDeLuz.GetComponent<Light2D>().enabled = CicloDaNoite.noite;
+        if(!luzDuranteDia) pontoDeLuz.GetComponent<Light2D>().enabled = CicloDaNoite.noite;
         //luz de iluminação  
         pontoDeLuz = transform.GetChild(1);
-        pontoDeLuz.GetComponent<Light2D>().enabled = CicloDaNoite.noite;
+        if(!luzDuranteDia) pontoDeLuz.GetComponent<Light2D>().enabled = CicloDaNoite.noite;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
