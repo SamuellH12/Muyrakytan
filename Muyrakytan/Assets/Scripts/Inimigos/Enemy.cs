@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int vidaAtual = 10;
     [SerializeField] protected float tempoCorDano = 1f;
     [SerializeField] protected Color corDeDano = new Color(1f, 1f, 1f);
+    [SerializeField] protected Color corDeRedencao = new Color(.1f, .4f, .8f);
     protected Color originalColor = new Color(1f, 1f, 1f);
     protected int qtdDeEventosDeDano = 0;
     protected bool vivo = true;
@@ -145,6 +146,10 @@ public class Enemy : MonoBehaviour
         if(redimido == null) Destroy(gameObject);
 
         vivo = anda = false;
+
+        corDeDano = corDeRedencao;
+        StartCoroutine("TrocarCor");        
+
         anim.Play("redencao");
     }
 

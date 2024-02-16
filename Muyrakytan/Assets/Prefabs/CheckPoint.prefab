@@ -143,6 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58cb3ab9151085449bba81b6402df61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particulas: {fileID: 2998659356077021615, guid: 2d36a8ed25c03634d9a2396f69ea674e, type: 3}
+  particulas: {fileID: 2998659356077021615, guid: 13cea7f9c1d30364f9d92d8a341e5a0b, type: 3}
   desativado: {fileID: 21300000, guid: 44947976e15c7ba4dad304149580e828, type: 3}
   ativado: {fileID: 21300000, guid: 44947976e15c7ba4dad304149580e828, type: 3}

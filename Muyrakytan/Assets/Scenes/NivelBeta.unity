@@ -2330,6 +2330,14 @@ PrefabInstance:
       propertyPath: vidaAtual
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1720914936125076210, guid: 3664eb49db89d8540b5cdae8fc066e73, type: 3}
+      propertyPath: corDeRedencao.g
+      value: 0.4893478
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720914936125076210, guid: 3664eb49db89d8540b5cdae8fc066e73, type: 3}
+      propertyPath: corDeRedencao.r
+      value: 0.101960756
+      objectReference: {fileID: 0}
     - target: {fileID: 7814674774500122324, guid: 3664eb49db89d8540b5cdae8fc066e73, type: 3}
       propertyPath: m_Name
       value: Trator

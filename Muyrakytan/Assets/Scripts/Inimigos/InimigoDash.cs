@@ -47,7 +47,9 @@ public class InimigoDash : Enemy
 
         yield return new WaitForSeconds(delay);
 
-        if(particulas2 != null)
+        inAction = inAction && vivo;
+
+        if(particulas2 != null && inAction)
         {
             GameObject eff = Instantiate(particulas2);
             eff.transform.position = transform.position;
