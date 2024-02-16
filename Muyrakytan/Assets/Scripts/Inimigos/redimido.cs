@@ -58,8 +58,9 @@ public class redimido : MonoBehaviour
         else 
         if(estado == 1 && tempoDaUltimaAcao >= tempoEntreAcao) Action();
         
-        if(estado == 0 ) anim.SetBool("andando", true);
-        else anim.SetBool("andando", false);
+        if(estado == 0) anim.SetBool("andando", anda);
+        else
+        if(estado == 2) anim.SetBool("andando", false);
 
         controle.aplicarMovimento(movimentoHorizontal, false);
         movimentoHorizontal = 0;
