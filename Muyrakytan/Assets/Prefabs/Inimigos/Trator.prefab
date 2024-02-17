@@ -232,9 +232,10 @@ MonoBehaviour:
   raioDeAcao: 12
   margemDoRaio: 3
   tempoEntreAcao: 0
-  vidaAtual: 14
+  vidaAtual: 20
   tempoCorDano: 1
   corDeDano: {r: 0.990566, g: 0.2943663, b: 0.2943663, a: 1}
+  corDeRedencao: {r: 0.1, g: 0.4, b: 0.8, a: 1}
   redimido: {fileID: 0}
   qtdDeDrops: 1
   drop: {fileID: 4942611299512897860, guid: 6b1412b954fad8645ae6e664b28b9c7e, type: 3}
