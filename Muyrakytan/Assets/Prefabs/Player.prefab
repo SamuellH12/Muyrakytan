@@ -219,6 +219,8 @@ MonoBehaviour:
   checkPoint: {fileID: 0}
   energiaMaxima: 30
   energiaAtual: 15
+  tempoParaRecuperarEnergia_dia: 30
+  tempoParaRecuperarEnergia_noite: 15
   taComAChave: 0
   tempoCorDano: 2
   corDeDano: {r: 0.9716981, g: 0.22459061, b: 0.22459061, a: 1}
