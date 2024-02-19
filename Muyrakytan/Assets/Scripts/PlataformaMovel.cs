@@ -8,9 +8,10 @@ public class PlataformaMovel : MonoBehaviour
     [Tooltip("Movimento Horizontal ou Vertical")]
     [SerializeField] private float distanciaPercorrida = 5f;
     [SerializeField] private float velocidade_ = 5f;
+    [Tooltip("Direcao inicial")]
+    [SerializeField] private bool dirCima = true;
     private float vel = 0f, oldDist;
     private float maxL, maxR;
-    private bool dir = true;
     Vector3 initialPos;
 
     void Start()
@@ -22,13 +23,13 @@ public class PlataformaMovel : MonoBehaviour
     void FixedUpdate()
     {
         if(oldDist != distanciaPercorrida) updateDist();
-        if( (horizontal && transform.position.x <= maxL) || (!horizontal && transform.position.y <= maxL) ) dir = true;
-        if( (horizontal && transform.position.x >= maxR) || (!horizontal && transform.position.y >= maxR) ) dir = false;
+        if( (horizontal && transform.position.x <= maxL) || (!horizontal && transform.position.y <= maxL) ) dirCima = true;
+        if( (horizontal && transform.position.x >= maxR) || (!horizontal && transform.position.y >= maxR) ) dirCima = false;
         vel = velocidade_ / (10000f * Time.fixedDeltaTime);
         
         if(horizontal) 
-            transform.position  = new Vector3( transform.position.x + vel * (dir ? 1f : -1f), transform.position.y, transform.position.z);
-        else transform.position = new Vector3( transform.position.x, transform.position.y + vel * (dir ? 1f : -1f), transform.position.z);
+            transform.position  = new Vector3( transform.position.x + vel * (dirCima ? 1f : -1f), transform.position.y, transform.position.z);
+        else transform.position = new Vector3( transform.position.x, transform.position.y + vel * (dirCima ? 1f : -1f), transform.position.z);
     }
 
 

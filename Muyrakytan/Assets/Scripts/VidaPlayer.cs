@@ -14,8 +14,8 @@ public class VidaPlayer : MonoBehaviour
     [Header("Energia")]
     [SerializeField] public int energiaMaxima = 100;
     [SerializeField] public int energiaAtual = 50;
-    [SerializeField] public float tempoParaRecuperarEnergia_dia = 5f;
-    [SerializeField] public float tempoParaRecuperarEnergia_noite = 2.5f;
+    [SerializeField] public float tempoParaRecuperarEnergia_dia = 30f;
+    [SerializeField] public float tempoParaRecuperarEnergia_noite = 15f;
 
 
     [Header("Chave")]
