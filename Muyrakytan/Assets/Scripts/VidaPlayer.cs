@@ -14,6 +14,9 @@ public class VidaPlayer : MonoBehaviour
     [Header("Energia")]
     [SerializeField] public int energiaMaxima = 100;
     [SerializeField] public int energiaAtual = 50;
+    [SerializeField] public float tempoParaRecuperarEnergia_dia = 5f;
+    [SerializeField] public float tempoParaRecuperarEnergia_noite = 2.5f;
+
 
     [Header("Chave")]
     [SerializeField] public bool taComAChave = false;
@@ -30,6 +33,7 @@ public class VidaPlayer : MonoBehaviour
     int qtdDeEventosDeCor = 0;
 
     private float tempoDecorrido = 0f;
+    private float tempoRecEnergia = 0f;
 
     void Start()
     {
@@ -44,8 +48,16 @@ public class VidaPlayer : MonoBehaviour
         checkPoint = temp.transform;
     }
 
-    void Update(){ tempoDecorrido += Time.deltaTime; }
+    void Update(){ tempoDecorrido += Time.deltaTime; tempoRecEnergia += Time.deltaTime; }
 
+    void FixedUpdate(){
+        if(( CicloDaNoite.noite && tempoRecEnergia >= tempoParaRecuperarEnergia_noite) 
+        || (!CicloDaNoite.noite && tempoRecEnergia >= tempoParaRecuperarEnergia_dia))
+        {
+            tempoRecEnergia = 0f;
+            somaEnergia(1);
+        }
+    }
 
     public void Dano(int dano=1)
     {

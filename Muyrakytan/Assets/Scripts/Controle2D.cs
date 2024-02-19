@@ -12,7 +12,7 @@ public class Controle2D : MonoBehaviour
 
     private Rigidbody2D Rig;         // rigidbody do personagem
 
-    private bool noChao = false; //está no chão
+    public bool noChao = false; //está no chão
     public bool facingDir = true;   //direção que o personagem está olhando
     [Range(0, 1f)] [SerializeField] private float raioChaoCheck = .2f; //raio de checagem para o chao
 	private Vector3 velocity = Vector3.zero;

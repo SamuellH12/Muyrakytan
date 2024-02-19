@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1227535705, guid: f2e48a10407c1a542a49fd08043fe976, type: 3}
+    - target: {fileID: 6844516608652919832, guid: 4e19db17d7113bc408d3c38e8810219e, type: 3}
+      propertyPath: raioDeAcao
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844516608652919832, guid: 4e19db17d7113bc408d3c38e8810219e, type: 3}
+      propertyPath: tempoEntreAcao
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7925687237427141547, guid: 4e19db17d7113bc408d3c38e8810219e, type: 3}
       propertyPath: m_Controller
       value: 

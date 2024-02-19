@@ -22,14 +22,16 @@ public class ControlePlayer : MonoBehaviour
     private float tempoDaFlecha = 0;
     public bool podeAtirarFlechas = true;
 
+    private Animator anim;
     private Rigidbody2D Rig;
     private Controle2D controle;
     private VidaPlayer vidaEnergia;
 
     private void Awake()
     {
-        controle = GetComponent<Controle2D>();
+        anim = GetComponent<Animator>();
         Rig = GetComponent<Rigidbody2D>();
+        controle = GetComponent<Controle2D>();
         vidaEnergia = GetComponent<VidaPlayer>();
     }
 
@@ -49,6 +51,10 @@ public class ControlePlayer : MonoBehaviour
     {
         controle.aplicarMovimento(movimentoHorizontal, pulando);
         pulando = false;
+
+        anim.SetBool("noChao", controle.noChao);
+        anim.SetBool("andando", movimentoHorizontal != 0);
+        anim.SetBool("noite", CicloDaNoite.noite);
     }
 
 
@@ -74,6 +80,8 @@ public class ControlePlayer : MonoBehaviour
         flecha.GetComponent<Rigidbody2D>().velocity = new Vector2(forcaDaFlecha * normal, 0);
 
         Destroy(flecha.gameObject, 5f);
+
+        anim.Play((CicloDaNoite.noite ? "naruna_ataque_noite" : "naruna_ataque_dia"));
     }
 
 

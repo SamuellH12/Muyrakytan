@@ -201,6 +201,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 893440900573076207}
+  noChao: 0
   facingDir: 1
   raioChaoCheck: 0.2
 --- !u!114 &6844516608652919832
@@ -221,8 +222,8 @@ MonoBehaviour:
   tempoAndando: 2.5
   tempoTransicao: 3
   anda: 0
-  raioDeAcao: 8
-  tempoEntreAcao: 6
+  raioDeAcao: 10
+  tempoEntreAcao: 2
 --- !u!95 &7925687237427141547
 Animator:
   serializedVersion: 5

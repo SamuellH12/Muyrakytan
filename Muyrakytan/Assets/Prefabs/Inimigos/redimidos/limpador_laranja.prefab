@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 7925687237427141547, guid: 4e19db17d7113bc408d3c38e8810219e, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: a064d540f3d0d9944a1d711466ee517d, type: 2}
+      objectReference: {fileID: 9100000, guid: 49057ebc40f75104bafde5919b9067b9, type: 2}
     - target: {fileID: 8608454697778390109, guid: 4e19db17d7113bc408d3c38e8810219e, type: 3}
       propertyPath: m_Name
       value: limpador_laranja
