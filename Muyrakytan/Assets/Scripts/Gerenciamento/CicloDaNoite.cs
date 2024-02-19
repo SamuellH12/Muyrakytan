@@ -44,11 +44,11 @@ public class CicloDaNoite : MonoBehaviour
 
     void Update()
     {
-        if ( Input.GetKeyDown(KeyCode.Tab))
-        {
-            if(noite) Amanhecer();
-            else Anoitecer();
-        }
+        // if ( Input.GetKeyDown(KeyCode.Tab))
+        // {
+        //     if(noite) Amanhecer();
+        //     else Anoitecer();
+        // }
     }
 
     public void Anoitecer(int faseDaLua = 0)

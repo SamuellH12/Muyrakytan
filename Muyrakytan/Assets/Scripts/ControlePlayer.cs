@@ -41,10 +41,11 @@ public class ControlePlayer : MonoBehaviour
         if(controlavel) movimentoHorizontal = Input.GetAxisRaw("Horizontal") * velocidade;
         else movimentoHorizontal = 0;
        
-        if(controlavel && Input.GetButtonDown("Jump")) pulando = true;
+        if(controlavel && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButtonDown("Jump"))) pulando = true;
 
         tempoDaFlecha += Time.deltaTime;
-        if(((Input.GetKeyDown(KeyCode.UpArrow)) || Input.GetButtonDown("Fire1")) && tempoDaFlecha >= cooldown && vidaEnergia.energiaAtual > 0 && !UIControl.paused) AtirarFlecha();
+        bool atirarBotao = Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.LeftShift);
+        if(atirarBotao && tempoDaFlecha >= cooldown && vidaEnergia.energiaAtual > 0 && !UIControl.paused) AtirarFlecha();
     }
 
     void FixedUpdate()

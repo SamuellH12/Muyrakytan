@@ -26,7 +26,7 @@ public class Canoa : MonoBehaviour
         if(controlavel) movimentoHorizontal = Input.GetAxisRaw("Horizontal") * velocidade;
         else movimentoHorizontal = 0;
 
-        if(controlavel && Input.GetButtonDown("Jump")) LiberarPlayer();
+        if(controlavel && (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow))) LiberarPlayer();
     }
 
     void FixedUpdate()

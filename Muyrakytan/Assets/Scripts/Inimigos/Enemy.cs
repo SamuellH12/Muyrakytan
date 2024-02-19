@@ -125,7 +125,7 @@ public class Enemy : MonoBehaviour
 
     private void Morte(){
         //animação de morte
-
+        if(!vivo) return;
 
         if(qtdDeDrops > 0 && drop != null)
         {
